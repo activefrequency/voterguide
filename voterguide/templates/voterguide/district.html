@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+
+{% endblock %}
+
+{% block content %}
+    
+    <h1>District</h1>
+    <br><br>
+
+    {% for district in districts %}
+        {{ district.name }}
+    {% endfor %}
+
+{% endblock %}
+
+{% block extrajs %}
+
+{% endblock %}

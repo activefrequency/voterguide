@@ -1,0 +1,45 @@
+{% load i18n %}{% load compress %}<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %}{% trans "NARAL Voter Guide" %}{% endblock %}</title>
+
+    {% compress css %}
+    <link href="{{ STATIC_URL }}css/bootstrap-3.2.0.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}font-awesome-4.1.0/css/font-awesome.css" rel="stylesheet">
+    {% endcompress %}
+
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <div id="page-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                    {% block content %}
+
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    {% compress js %}
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-3.2.0.js"></script>
+    {% endcompress %}
+
+    {% block extrajs %}
+    {% endblock %}
+
+</body>
+</html>

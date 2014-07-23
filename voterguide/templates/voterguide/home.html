@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyDa_47diC1hpzsMM-6bszFZLOfDS97EXek"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}voterguide/voterguide.js"></script>
+{% endblock %}
+
+{% block content %}
+    
+    <h1>District Lookup</h1>
+    <br><br>
+
+    <form method="GET" id="address_lookup">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" size="50">
+        <br><br>
+        <input type="submit" class="btn btn-primary" value="OK">
+    </form>
+
+    <form method="GET" action="{% url 'district_lookup' %}" id="district_lookup">
+        <input type="hidden" name="lat" id="address_lat">
+        <input type="hidden" name="lng" id="address_lng">
+    </form>
+
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+
+            $('#address_lookup').on('submit', function(e) {
+                e.preventDefault();
+                var address = $('#address').val();
+
+                // GOOGLE
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({'address': address}, function(results, status) {
+                  if (status == google.maps.GeocoderStatus.OK) {
+                    window.log("Google geocode successful");
+                    var loc = results[0].geometry.location;
+                    $('#address_lat').val(loc.lat());
+                    $('#address_lng').val(loc.lng());
+                    $('#district_lookup').submit();
+                  } else {
+                    window.log("Geocode was not successful for the following reason: " + status);
+                  }
+                });
+            });
+
+        });
+    </script>
+{% endblock %}
