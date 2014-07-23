@@ -1,0 +1,107 @@
+[
+{
+    "pk": 1, 
+    "model": "voterguide.election", 
+    "fields": {
+        "name": "2014 Primary", 
+        "election_date": "2014-09-09", 
+        "is_active": true, 
+        "created_on": "2014-07-23T15:07:55.731Z", 
+        "state": "MA", 
+        "year": 2014, 
+        "modified_on": "2014-07-23T15:07:55.731Z", 
+        "election_type": "P"
+    }
+},
+{
+    "pk": 2, 
+    "model": "voterguide.election", 
+    "fields": {
+        "name": "2014 General", 
+        "election_date": "2014-11-04", 
+        "is_active": false, 
+        "created_on": "2014-07-23T15:08:05.636Z", 
+        "state": "MA", 
+        "year": 2014, 
+        "modified_on": "2014-07-23T15:08:15.053Z", 
+        "election_type": "G"
+    }
+},
+{
+    "pk": 1, 
+    "model": "voterguide.office", 
+    "fields": {
+        "priority": 100, 
+        "chamber": null, 
+        "created_on": "2014-07-23T15:08:23.765Z", 
+        "modified_on": "2014-07-23T15:09:03.693Z", 
+        "name": "Governor"
+    }
+},
+{
+    "pk": 2, 
+    "model": "voterguide.office", 
+    "fields": {
+        "priority": 20, 
+        "chamber": 1, 
+        "created_on": "2014-07-23T15:08:28.876Z", 
+        "modified_on": "2014-07-23T15:41:58.934Z", 
+        "name": "State Senate"
+    }
+},
+{
+    "pk": 3, 
+    "model": "voterguide.office", 
+    "fields": {
+        "priority": 90, 
+        "chamber": null, 
+        "created_on": "2014-07-23T15:09:09.642Z", 
+        "modified_on": "2014-07-23T15:09:09.642Z", 
+        "name": "Lt. Governor"
+    }
+},
+{
+    "pk": 4, 
+    "model": "voterguide.office", 
+    "fields": {
+        "priority": 80, 
+        "chamber": null, 
+        "created_on": "2014-07-23T15:09:19.685Z", 
+        "modified_on": "2014-07-23T15:09:19.685Z", 
+        "name": "Treasurer"
+    }
+},
+{
+    "pk": 5, 
+    "model": "voterguide.office", 
+    "fields": {
+        "priority": 60, 
+        "chamber": null, 
+        "created_on": "2014-07-23T15:09:38.441Z", 
+        "modified_on": "2014-07-23T15:09:38.441Z", 
+        "name": "Attorney General"
+    }
+},
+{
+    "pk": 6, 
+    "model": "voterguide.office", 
+    "fields": {
+        "priority": 50, 
+        "chamber": null, 
+        "created_on": "2014-07-23T15:09:44.840Z", 
+        "modified_on": "2014-07-23T15:09:44.840Z", 
+        "name": "Auditor"
+    }
+},
+{
+    "pk": 7, 
+    "model": "voterguide.office", 
+    "fields": {
+        "priority": 10, 
+        "chamber": 2, 
+        "created_on": "2014-07-23T15:11:03.358Z", 
+        "modified_on": "2014-07-23T15:42:03.160Z", 
+        "name": "State Rep."
+    }
+}
+]

@@ -1,0 +1,2462 @@
+[
+{
+    "pk": 2, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 1, 
+        "district": null, 
+        "created_on": "2014-07-23T15:12:46.308Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:12:46.308Z"
+    }
+},
+{
+    "pk": 3, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 3, 
+        "district": null, 
+        "created_on": "2014-07-23T15:15:22.541Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:15:22.541Z"
+    }
+},
+{
+    "pk": 4, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 4, 
+        "district": null, 
+        "created_on": "2014-07-23T15:15:28.465Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:15:28.465Z"
+    }
+},
+{
+    "pk": 5, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 5, 
+        "district": null, 
+        "created_on": "2014-07-23T15:15:33.969Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:15:33.969Z"
+    }
+},
+{
+    "pk": 6, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 6, 
+        "district": null, 
+        "created_on": "2014-07-23T15:15:41.976Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:15:41.976Z"
+    }
+},
+{
+    "pk": 8, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 161, 
+        "created_on": "2014-07-23T15:43:58.888Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.888Z"
+    }
+},
+{
+    "pk": 9, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 165, 
+        "created_on": "2014-07-23T15:43:58.898Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.898Z"
+    }
+},
+{
+    "pk": 10, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 186, 
+        "created_on": "2014-07-23T15:43:58.907Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.907Z"
+    }
+},
+{
+    "pk": 11, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 162, 
+        "created_on": "2014-07-23T15:43:58.916Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.916Z"
+    }
+},
+{
+    "pk": 12, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 163, 
+        "created_on": "2014-07-23T15:43:58.924Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.924Z"
+    }
+},
+{
+    "pk": 13, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 167, 
+        "created_on": "2014-07-23T15:43:58.933Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.933Z"
+    }
+},
+{
+    "pk": 14, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 188, 
+        "created_on": "2014-07-23T15:43:58.942Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.942Z"
+    }
+},
+{
+    "pk": 15, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 166, 
+        "created_on": "2014-07-23T15:43:58.950Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.950Z"
+    }
+},
+{
+    "pk": 16, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 187, 
+        "created_on": "2014-07-23T15:43:58.961Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.961Z"
+    }
+},
+{
+    "pk": 17, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 196, 
+        "created_on": "2014-07-23T15:43:58.970Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.970Z"
+    }
+},
+{
+    "pk": 18, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 176, 
+        "created_on": "2014-07-23T15:43:58.979Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.979Z"
+    }
+},
+{
+    "pk": 19, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 168, 
+        "created_on": "2014-07-23T15:43:58.988Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.988Z"
+    }
+},
+{
+    "pk": 20, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 189, 
+        "created_on": "2014-07-23T15:43:58.997Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:58.997Z"
+    }
+},
+{
+    "pk": 21, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 177, 
+        "created_on": "2014-07-23T15:43:59.006Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.006Z"
+    }
+},
+{
+    "pk": 22, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 170, 
+        "created_on": "2014-07-23T15:43:59.015Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.015Z"
+    }
+},
+{
+    "pk": 23, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 191, 
+        "created_on": "2014-07-23T15:43:59.023Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.023Z"
+    }
+},
+{
+    "pk": 24, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 169, 
+        "created_on": "2014-07-23T15:43:59.032Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.032Z"
+    }
+},
+{
+    "pk": 25, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 190, 
+        "created_on": "2014-07-23T15:43:59.041Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.041Z"
+    }
+},
+{
+    "pk": 26, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 197, 
+        "created_on": "2014-07-23T15:43:59.049Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.049Z"
+    }
+},
+{
+    "pk": 27, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 175, 
+        "created_on": "2014-07-23T15:43:59.058Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.058Z"
+    }
+},
+{
+    "pk": 28, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 164, 
+        "created_on": "2014-07-23T15:43:59.067Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.067Z"
+    }
+},
+{
+    "pk": 29, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 178, 
+        "created_on": "2014-07-23T15:43:59.076Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.076Z"
+    }
+},
+{
+    "pk": 30, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 179, 
+        "created_on": "2014-07-23T15:43:59.085Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.085Z"
+    }
+},
+{
+    "pk": 31, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 180, 
+        "created_on": "2014-07-23T15:43:59.093Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.093Z"
+    }
+},
+{
+    "pk": 32, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 181, 
+        "created_on": "2014-07-23T15:43:59.101Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.101Z"
+    }
+},
+{
+    "pk": 33, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 182, 
+        "created_on": "2014-07-23T15:43:59.110Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.110Z"
+    }
+},
+{
+    "pk": 34, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 183, 
+        "created_on": "2014-07-23T15:43:59.118Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.118Z"
+    }
+},
+{
+    "pk": 35, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 171, 
+        "created_on": "2014-07-23T15:43:59.127Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.127Z"
+    }
+},
+{
+    "pk": 36, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 192, 
+        "created_on": "2014-07-23T15:43:59.135Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.135Z"
+    }
+},
+{
+    "pk": 37, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 184, 
+        "created_on": "2014-07-23T15:43:59.143Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.143Z"
+    }
+},
+{
+    "pk": 38, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 185, 
+        "created_on": "2014-07-23T15:43:59.152Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.152Z"
+    }
+},
+{
+    "pk": 39, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 173, 
+        "created_on": "2014-07-23T15:43:59.161Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.161Z"
+    }
+},
+{
+    "pk": 40, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 194, 
+        "created_on": "2014-07-23T15:43:59.169Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.169Z"
+    }
+},
+{
+    "pk": 41, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 172, 
+        "created_on": "2014-07-23T15:43:59.178Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.178Z"
+    }
+},
+{
+    "pk": 42, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 193, 
+        "created_on": "2014-07-23T15:43:59.186Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.186Z"
+    }
+},
+{
+    "pk": 43, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 174, 
+        "created_on": "2014-07-23T15:43:59.195Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.195Z"
+    }
+},
+{
+    "pk": 44, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 195, 
+        "created_on": "2014-07-23T15:43:59.204Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.204Z"
+    }
+},
+{
+    "pk": 45, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 198, 
+        "created_on": "2014-07-23T15:43:59.212Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.212Z"
+    }
+},
+{
+    "pk": 46, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 199, 
+        "created_on": "2014-07-23T15:43:59.221Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.221Z"
+    }
+},
+{
+    "pk": 47, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 2, 
+        "district": 200, 
+        "created_on": "2014-07-23T15:43:59.229Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:43:59.229Z"
+    }
+},
+{
+    "pk": 49, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 36, 
+        "created_on": "2014-07-23T15:48:29.318Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.318Z"
+    }
+},
+{
+    "pk": 50, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 74, 
+        "created_on": "2014-07-23T15:48:29.328Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.328Z"
+    }
+},
+{
+    "pk": 51, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 118, 
+        "created_on": "2014-07-23T15:48:29.337Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.337Z"
+    }
+},
+{
+    "pk": 52, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 54, 
+        "created_on": "2014-07-23T15:48:29.346Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.346Z"
+    }
+},
+{
+    "pk": 53, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 27, 
+        "created_on": "2014-07-23T15:48:29.354Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.354Z"
+    }
+},
+{
+    "pk": 54, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 1, 
+        "created_on": "2014-07-23T15:48:29.363Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.363Z"
+    }
+},
+{
+    "pk": 55, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 37, 
+        "created_on": "2014-07-23T15:48:29.372Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.372Z"
+    }
+},
+{
+    "pk": 56, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 75, 
+        "created_on": "2014-07-23T15:48:29.380Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.380Z"
+    }
+},
+{
+    "pk": 57, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 119, 
+        "created_on": "2014-07-23T15:48:29.389Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.389Z"
+    }
+},
+{
+    "pk": 58, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 55, 
+        "created_on": "2014-07-23T15:48:29.398Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.398Z"
+    }
+},
+{
+    "pk": 59, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 38, 
+        "created_on": "2014-07-23T15:48:29.407Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.407Z"
+    }
+},
+{
+    "pk": 60, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 76, 
+        "created_on": "2014-07-23T15:48:29.416Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.416Z"
+    }
+},
+{
+    "pk": 61, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 120, 
+        "created_on": "2014-07-23T15:48:29.424Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.425Z"
+    }
+},
+{
+    "pk": 62, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 56, 
+        "created_on": "2014-07-23T15:48:29.433Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.433Z"
+    }
+},
+{
+    "pk": 63, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 28, 
+        "created_on": "2014-07-23T15:48:29.442Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.442Z"
+    }
+},
+{
+    "pk": 64, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 102, 
+        "created_on": "2014-07-23T15:48:29.451Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.451Z"
+    }
+},
+{
+    "pk": 65, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 90, 
+        "created_on": "2014-07-23T15:48:29.460Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.460Z"
+    }
+},
+{
+    "pk": 66, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 6, 
+        "created_on": "2014-07-23T15:48:29.469Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.469Z"
+    }
+},
+{
+    "pk": 67, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 66, 
+        "created_on": "2014-07-23T15:48:29.478Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.478Z"
+    }
+},
+{
+    "pk": 68, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 110, 
+        "created_on": "2014-07-23T15:48:29.487Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.487Z"
+    }
+},
+{
+    "pk": 69, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 14, 
+        "created_on": "2014-07-23T15:48:29.496Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.496Z"
+    }
+},
+{
+    "pk": 70, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 143, 
+        "created_on": "2014-07-23T15:48:29.505Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.505Z"
+    }
+},
+{
+    "pk": 71, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 129, 
+        "created_on": "2014-07-23T15:48:29.513Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.513Z"
+    }
+},
+{
+    "pk": 72, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 48, 
+        "created_on": "2014-07-23T15:48:29.522Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.522Z"
+    }
+},
+{
+    "pk": 73, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 39, 
+        "created_on": "2014-07-23T15:48:29.530Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.530Z"
+    }
+},
+{
+    "pk": 74, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 77, 
+        "created_on": "2014-07-23T15:48:29.539Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.539Z"
+    }
+},
+{
+    "pk": 75, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 121, 
+        "created_on": "2014-07-23T15:48:29.547Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.547Z"
+    }
+},
+{
+    "pk": 76, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 57, 
+        "created_on": "2014-07-23T15:48:29.556Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.556Z"
+    }
+},
+{
+    "pk": 77, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 29, 
+        "created_on": "2014-07-23T15:48:29.565Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.565Z"
+    }
+},
+{
+    "pk": 78, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 103, 
+        "created_on": "2014-07-23T15:48:29.574Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.574Z"
+    }
+},
+{
+    "pk": 79, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 91, 
+        "created_on": "2014-07-23T15:48:29.583Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.583Z"
+    }
+},
+{
+    "pk": 80, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 7, 
+        "created_on": "2014-07-23T15:48:29.591Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.591Z"
+    }
+},
+{
+    "pk": 81, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 67, 
+        "created_on": "2014-07-23T15:48:29.600Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.600Z"
+    }
+},
+{
+    "pk": 82, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 111, 
+        "created_on": "2014-07-23T15:48:29.608Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.608Z"
+    }
+},
+{
+    "pk": 83, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 15, 
+        "created_on": "2014-07-23T15:48:29.617Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.617Z"
+    }
+},
+{
+    "pk": 84, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 144, 
+        "created_on": "2014-07-23T15:48:29.625Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.625Z"
+    }
+},
+{
+    "pk": 85, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 130, 
+        "created_on": "2014-07-23T15:48:29.635Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.635Z"
+    }
+},
+{
+    "pk": 86, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 49, 
+        "created_on": "2014-07-23T15:48:29.643Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.643Z"
+    }
+},
+{
+    "pk": 87, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 22, 
+        "created_on": "2014-07-23T15:48:29.653Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.653Z"
+    }
+},
+{
+    "pk": 88, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 98, 
+        "created_on": "2014-07-23T15:48:29.661Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.661Z"
+    }
+},
+{
+    "pk": 89, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 86, 
+        "created_on": "2014-07-23T15:48:29.670Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.670Z"
+    }
+},
+{
+    "pk": 90, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 2, 
+        "created_on": "2014-07-23T15:48:29.678Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.678Z"
+    }
+},
+{
+    "pk": 91, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 40, 
+        "created_on": "2014-07-23T15:48:29.686Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.686Z"
+    }
+},
+{
+    "pk": 92, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 78, 
+        "created_on": "2014-07-23T15:48:29.695Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.695Z"
+    }
+},
+{
+    "pk": 93, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 41, 
+        "created_on": "2014-07-23T15:48:29.703Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.703Z"
+    }
+},
+{
+    "pk": 94, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 79, 
+        "created_on": "2014-07-23T15:48:29.711Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.711Z"
+    }
+},
+{
+    "pk": 95, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 122, 
+        "created_on": "2014-07-23T15:48:29.719Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.719Z"
+    }
+},
+{
+    "pk": 96, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 58, 
+        "created_on": "2014-07-23T15:48:29.728Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.728Z"
+    }
+},
+{
+    "pk": 97, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 30, 
+        "created_on": "2014-07-23T15:48:29.736Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.736Z"
+    }
+},
+{
+    "pk": 98, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 104, 
+        "created_on": "2014-07-23T15:48:29.745Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.745Z"
+    }
+},
+{
+    "pk": 99, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 92, 
+        "created_on": "2014-07-23T15:48:29.754Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.754Z"
+    }
+},
+{
+    "pk": 100, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 8, 
+        "created_on": "2014-07-23T15:48:29.762Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.762Z"
+    }
+},
+{
+    "pk": 101, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 68, 
+        "created_on": "2014-07-23T15:48:29.770Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.770Z"
+    }
+},
+{
+    "pk": 102, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 112, 
+        "created_on": "2014-07-23T15:48:29.779Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.779Z"
+    }
+},
+{
+    "pk": 103, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 16, 
+        "created_on": "2014-07-23T15:48:29.787Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.787Z"
+    }
+},
+{
+    "pk": 104, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 145, 
+        "created_on": "2014-07-23T15:48:29.796Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.796Z"
+    }
+},
+{
+    "pk": 105, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 42, 
+        "created_on": "2014-07-23T15:48:29.804Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.804Z"
+    }
+},
+{
+    "pk": 106, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 80, 
+        "created_on": "2014-07-23T15:48:29.812Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.812Z"
+    }
+},
+{
+    "pk": 107, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 123, 
+        "created_on": "2014-07-23T15:48:29.821Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.821Z"
+    }
+},
+{
+    "pk": 108, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 43, 
+        "created_on": "2014-07-23T15:48:29.829Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.829Z"
+    }
+},
+{
+    "pk": 109, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 81, 
+        "created_on": "2014-07-23T15:48:29.837Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.837Z"
+    }
+},
+{
+    "pk": 110, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 124, 
+        "created_on": "2014-07-23T15:48:29.845Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.845Z"
+    }
+},
+{
+    "pk": 111, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 59, 
+        "created_on": "2014-07-23T15:48:29.853Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.853Z"
+    }
+},
+{
+    "pk": 112, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 31, 
+        "created_on": "2014-07-23T15:48:29.861Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.861Z"
+    }
+},
+{
+    "pk": 113, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 105, 
+        "created_on": "2014-07-23T15:48:29.870Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.870Z"
+    }
+},
+{
+    "pk": 114, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 93, 
+        "created_on": "2014-07-23T15:48:29.878Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.878Z"
+    }
+},
+{
+    "pk": 115, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 9, 
+        "created_on": "2014-07-23T15:48:29.886Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.886Z"
+    }
+},
+{
+    "pk": 116, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 69, 
+        "created_on": "2014-07-23T15:48:29.895Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.895Z"
+    }
+},
+{
+    "pk": 117, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 113, 
+        "created_on": "2014-07-23T15:48:29.903Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.904Z"
+    }
+},
+{
+    "pk": 118, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 17, 
+        "created_on": "2014-07-23T15:48:29.912Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.912Z"
+    }
+},
+{
+    "pk": 119, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 146, 
+        "created_on": "2014-07-23T15:48:29.921Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.921Z"
+    }
+},
+{
+    "pk": 120, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 131, 
+        "created_on": "2014-07-23T15:48:29.929Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.929Z"
+    }
+},
+{
+    "pk": 121, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 50, 
+        "created_on": "2014-07-23T15:48:29.937Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.937Z"
+    }
+},
+{
+    "pk": 122, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 23, 
+        "created_on": "2014-07-23T15:48:29.945Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.945Z"
+    }
+},
+{
+    "pk": 123, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 99, 
+        "created_on": "2014-07-23T15:48:29.954Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.954Z"
+    }
+},
+{
+    "pk": 124, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 87, 
+        "created_on": "2014-07-23T15:48:29.962Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.962Z"
+    }
+},
+{
+    "pk": 125, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 3, 
+        "created_on": "2014-07-23T15:48:29.970Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.970Z"
+    }
+},
+{
+    "pk": 126, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 64, 
+        "created_on": "2014-07-23T15:48:29.978Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.978Z"
+    }
+},
+{
+    "pk": 127, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 151, 
+        "created_on": "2014-07-23T15:48:29.987Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.987Z"
+    }
+},
+{
+    "pk": 128, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 154, 
+        "created_on": "2014-07-23T15:48:29.997Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:29.997Z"
+    }
+},
+{
+    "pk": 129, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 157, 
+        "created_on": "2014-07-23T15:48:30.006Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.006Z"
+    }
+},
+{
+    "pk": 130, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 160, 
+        "created_on": "2014-07-23T15:48:30.014Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.014Z"
+    }
+},
+{
+    "pk": 131, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 155, 
+        "created_on": "2014-07-23T15:48:30.022Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.022Z"
+    }
+},
+{
+    "pk": 132, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 153, 
+        "created_on": "2014-07-23T15:48:30.031Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.032Z"
+    }
+},
+{
+    "pk": 133, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 159, 
+        "created_on": "2014-07-23T15:48:30.040Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.040Z"
+    }
+},
+{
+    "pk": 134, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 158, 
+        "created_on": "2014-07-23T15:48:30.048Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.048Z"
+    }
+},
+{
+    "pk": 135, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 152, 
+        "created_on": "2014-07-23T15:48:30.056Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.056Z"
+    }
+},
+{
+    "pk": 136, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 156, 
+        "created_on": "2014-07-23T15:48:30.065Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.065Z"
+    }
+},
+{
+    "pk": 137, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 137, 
+        "created_on": "2014-07-23T15:48:30.073Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.073Z"
+    }
+},
+{
+    "pk": 138, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 139, 
+        "created_on": "2014-07-23T15:48:30.081Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.081Z"
+    }
+},
+{
+    "pk": 139, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 142, 
+        "created_on": "2014-07-23T15:48:30.089Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.089Z"
+    }
+},
+{
+    "pk": 140, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 138, 
+        "created_on": "2014-07-23T15:48:30.098Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.098Z"
+    }
+},
+{
+    "pk": 141, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 136, 
+        "created_on": "2014-07-23T15:48:30.106Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.106Z"
+    }
+},
+{
+    "pk": 142, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 141, 
+        "created_on": "2014-07-23T15:48:30.114Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.114Z"
+    }
+},
+{
+    "pk": 143, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 140, 
+        "created_on": "2014-07-23T15:48:30.123Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.123Z"
+    }
+},
+{
+    "pk": 144, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 135, 
+        "created_on": "2014-07-23T15:48:30.131Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.131Z"
+    }
+},
+{
+    "pk": 145, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 44, 
+        "created_on": "2014-07-23T15:48:30.139Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.139Z"
+    }
+},
+{
+    "pk": 146, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 82, 
+        "created_on": "2014-07-23T15:48:30.147Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.147Z"
+    }
+},
+{
+    "pk": 147, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 125, 
+        "created_on": "2014-07-23T15:48:30.156Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.156Z"
+    }
+},
+{
+    "pk": 148, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 60, 
+        "created_on": "2014-07-23T15:48:30.164Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.164Z"
+    }
+},
+{
+    "pk": 149, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 32, 
+        "created_on": "2014-07-23T15:48:30.172Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.172Z"
+    }
+},
+{
+    "pk": 150, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 106, 
+        "created_on": "2014-07-23T15:48:30.180Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.180Z"
+    }
+},
+{
+    "pk": 151, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 94, 
+        "created_on": "2014-07-23T15:48:30.188Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.188Z"
+    }
+},
+{
+    "pk": 152, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 10, 
+        "created_on": "2014-07-23T15:48:30.197Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.197Z"
+    }
+},
+{
+    "pk": 153, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 70, 
+        "created_on": "2014-07-23T15:48:30.205Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.205Z"
+    }
+},
+{
+    "pk": 154, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 114, 
+        "created_on": "2014-07-23T15:48:30.214Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.214Z"
+    }
+},
+{
+    "pk": 155, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 18, 
+        "created_on": "2014-07-23T15:48:30.222Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.222Z"
+    }
+},
+{
+    "pk": 156, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 147, 
+        "created_on": "2014-07-23T15:48:30.230Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.230Z"
+    }
+},
+{
+    "pk": 157, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 132, 
+        "created_on": "2014-07-23T15:48:30.239Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.239Z"
+    }
+},
+{
+    "pk": 158, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 51, 
+        "created_on": "2014-07-23T15:48:30.247Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.247Z"
+    }
+},
+{
+    "pk": 159, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 24, 
+        "created_on": "2014-07-23T15:48:30.255Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.255Z"
+    }
+},
+{
+    "pk": 160, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 45, 
+        "created_on": "2014-07-23T15:48:30.263Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.263Z"
+    }
+},
+{
+    "pk": 161, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 83, 
+        "created_on": "2014-07-23T15:48:30.271Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.271Z"
+    }
+},
+{
+    "pk": 162, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 126, 
+        "created_on": "2014-07-23T15:48:30.279Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.280Z"
+    }
+},
+{
+    "pk": 163, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 61, 
+        "created_on": "2014-07-23T15:48:30.288Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.288Z"
+    }
+},
+{
+    "pk": 164, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 33, 
+        "created_on": "2014-07-23T15:48:30.296Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.296Z"
+    }
+},
+{
+    "pk": 165, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 107, 
+        "created_on": "2014-07-23T15:48:30.311Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.311Z"
+    }
+},
+{
+    "pk": 166, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 95, 
+        "created_on": "2014-07-23T15:48:30.324Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.324Z"
+    }
+},
+{
+    "pk": 167, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 11, 
+        "created_on": "2014-07-23T15:48:30.332Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.332Z"
+    }
+},
+{
+    "pk": 168, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 71, 
+        "created_on": "2014-07-23T15:48:30.340Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.340Z"
+    }
+},
+{
+    "pk": 169, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 115, 
+        "created_on": "2014-07-23T15:48:30.348Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.348Z"
+    }
+},
+{
+    "pk": 170, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 19, 
+        "created_on": "2014-07-23T15:48:30.356Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.356Z"
+    }
+},
+{
+    "pk": 171, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 148, 
+        "created_on": "2014-07-23T15:48:30.365Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.365Z"
+    }
+},
+{
+    "pk": 172, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 46, 
+        "created_on": "2014-07-23T15:48:30.373Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.373Z"
+    }
+},
+{
+    "pk": 173, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 84, 
+        "created_on": "2014-07-23T15:48:30.381Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.381Z"
+    }
+},
+{
+    "pk": 174, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 127, 
+        "created_on": "2014-07-23T15:48:30.390Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.390Z"
+    }
+},
+{
+    "pk": 175, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 62, 
+        "created_on": "2014-07-23T15:48:30.398Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.398Z"
+    }
+},
+{
+    "pk": 176, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 34, 
+        "created_on": "2014-07-23T15:48:30.406Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.406Z"
+    }
+},
+{
+    "pk": 177, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 108, 
+        "created_on": "2014-07-23T15:48:30.414Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.414Z"
+    }
+},
+{
+    "pk": 178, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 96, 
+        "created_on": "2014-07-23T15:48:30.423Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.423Z"
+    }
+},
+{
+    "pk": 179, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 12, 
+        "created_on": "2014-07-23T15:48:30.431Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.431Z"
+    }
+},
+{
+    "pk": 180, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 72, 
+        "created_on": "2014-07-23T15:48:30.439Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.439Z"
+    }
+},
+{
+    "pk": 181, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 116, 
+        "created_on": "2014-07-23T15:48:30.448Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.448Z"
+    }
+},
+{
+    "pk": 182, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 20, 
+        "created_on": "2014-07-23T15:48:30.457Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.457Z"
+    }
+},
+{
+    "pk": 183, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 149, 
+        "created_on": "2014-07-23T15:48:30.467Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.467Z"
+    }
+},
+{
+    "pk": 184, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 133, 
+        "created_on": "2014-07-23T15:48:30.475Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.475Z"
+    }
+},
+{
+    "pk": 185, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 52, 
+        "created_on": "2014-07-23T15:48:30.485Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.485Z"
+    }
+},
+{
+    "pk": 186, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 25, 
+        "created_on": "2014-07-23T15:48:30.495Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.495Z"
+    }
+},
+{
+    "pk": 187, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 100, 
+        "created_on": "2014-07-23T15:48:30.503Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.503Z"
+    }
+},
+{
+    "pk": 188, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 88, 
+        "created_on": "2014-07-23T15:48:30.511Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.511Z"
+    }
+},
+{
+    "pk": 189, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 4, 
+        "created_on": "2014-07-23T15:48:30.520Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.520Z"
+    }
+},
+{
+    "pk": 190, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 65, 
+        "created_on": "2014-07-23T15:48:30.528Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.528Z"
+    }
+},
+{
+    "pk": 191, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 47, 
+        "created_on": "2014-07-23T15:48:30.536Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.536Z"
+    }
+},
+{
+    "pk": 192, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 85, 
+        "created_on": "2014-07-23T15:48:30.544Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.544Z"
+    }
+},
+{
+    "pk": 193, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 128, 
+        "created_on": "2014-07-23T15:48:30.552Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.552Z"
+    }
+},
+{
+    "pk": 194, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 63, 
+        "created_on": "2014-07-23T15:48:30.561Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.561Z"
+    }
+},
+{
+    "pk": 195, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 35, 
+        "created_on": "2014-07-23T15:48:30.570Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.570Z"
+    }
+},
+{
+    "pk": 196, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 109, 
+        "created_on": "2014-07-23T15:48:30.578Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.578Z"
+    }
+},
+{
+    "pk": 197, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 97, 
+        "created_on": "2014-07-23T15:48:30.586Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.586Z"
+    }
+},
+{
+    "pk": 198, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 13, 
+        "created_on": "2014-07-23T15:48:30.596Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.596Z"
+    }
+},
+{
+    "pk": 199, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 73, 
+        "created_on": "2014-07-23T15:48:30.604Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.604Z"
+    }
+},
+{
+    "pk": 200, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 117, 
+        "created_on": "2014-07-23T15:48:30.612Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.612Z"
+    }
+},
+{
+    "pk": 201, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 21, 
+        "created_on": "2014-07-23T15:48:30.620Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.620Z"
+    }
+},
+{
+    "pk": 202, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 150, 
+        "created_on": "2014-07-23T15:48:30.628Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.628Z"
+    }
+},
+{
+    "pk": 203, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 134, 
+        "created_on": "2014-07-23T15:48:30.640Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.640Z"
+    }
+},
+{
+    "pk": 204, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 53, 
+        "created_on": "2014-07-23T15:48:30.649Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.649Z"
+    }
+},
+{
+    "pk": 205, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 26, 
+        "created_on": "2014-07-23T15:48:30.658Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.658Z"
+    }
+},
+{
+    "pk": 206, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 101, 
+        "created_on": "2014-07-23T15:48:30.666Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.666Z"
+    }
+},
+{
+    "pk": 207, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 89, 
+        "created_on": "2014-07-23T15:48:30.675Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.675Z"
+    }
+},
+{
+    "pk": 208, 
+    "model": "voterguide.race", 
+    "fields": {
+        "office": 7, 
+        "district": 5, 
+        "created_on": "2014-07-23T15:48:30.683Z", 
+        "state": "MA", 
+        "election": 1, 
+        "modified_on": "2014-07-23T15:48:30.683Z"
+    }
+}
+]
