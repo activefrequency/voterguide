@@ -137,6 +137,15 @@ INSTALLED_APPS = (
 # Disable Django Debug Toolbar by default - override in settings_local if you want to turn it on
 INTERNAL_IPS = ( )
 
+import os
+EMAIL_HOST = 'smtp.mandrillapp.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('MANDRILL_USERNAME')
+EMAIL_HOST_PASSWORD = os.environ.get('MANDRILL_APIKEY')
+EMAIL_USE_TLS = True
+SERVER_EMAIL = 'kevin+naralvoterguide@activefrequency.com'
+DEFAULT_FROM_EMAIL = 'kevin+naralvoterguide@activefrequency.com'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -166,15 +175,16 @@ LOGGING = {
     }
 }
 
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
-AWS_PRELOAD_METADATA = True
-AWS_QUERYSTRING_AUTH = False
+# No file uploads by default
 
-DEFAULT_FILE_STORAGE = 'naralvoterguide.s3utils.MediaRootS3BotoStorage'
+# AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "")
+# AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
+# AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
+# AWS_PRELOAD_METADATA = True
+# AWS_QUERYSTRING_AUTH = False
 
-MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
+# DEFAULT_FILE_STORAGE = 'naralvoterguide.s3utils.MediaRootS3BotoStorage'
+# MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
 
 try:
     from settings_local import *

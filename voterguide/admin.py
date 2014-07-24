@@ -44,10 +44,6 @@ class PersonAdmin(admin.ModelAdmin):
 admin.site.register(Person, PersonAdmin)
 
 
-class PersonInline(admin.TabularInline):
-    model = Person
-
-
 class CandidateAdmin(admin.ModelAdmin):
     raw_id_fields = ('person', 'race', )
     list_display = ('person', 'race', 'party', 'rating', 'is_incumbent', 'featured')
