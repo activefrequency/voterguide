@@ -146,6 +146,13 @@ EMAIL_USE_TLS = True
 SERVER_EMAIL = 'kevin+naralvoterguide@activefrequency.com'
 DEFAULT_FROM_EMAIL = 'kevin+naralvoterguide@activefrequency.com'
 
+SUNLIGHT_API_KEY = os.environ.get('SUNLIGHT_API_KEY', '')
+
+VOTERGUIDE_SETTINGS = {
+    'DEFAULT_STATE': os.environ.get('VOTERGUIDE_DEFAULT_STATE', 'MA'),
+    'DEFAULT_YEAR': os.environ.get('VOTERGUIDE_DEFAULT_YEAR', '2014'),
+}
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
