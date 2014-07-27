@@ -137,7 +137,14 @@ INSTALLED_APPS = (
 # Disable Django Debug Toolbar by default - override in settings_local if you want to turn it on
 INTERNAL_IPS = ( )
 
-import os
+# to make the classes match up with Bootstrap
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
+
+LOGIN_URL = 'admin.login'
+
 EMAIL_HOST = 'smtp.mandrillapp.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('MANDRILL_USERNAME')

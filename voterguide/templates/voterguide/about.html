@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content_header %}
+    <h1>{% trans "About Our Ratings" %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<p>
+    {% blocktrans %}
+        Ratings are based on a candidate's voting record, responses to our questionnaire, and/or information gathered by the NARAL Pro-Choice Massachusetts Political Committee.
+    {% endblocktrans %}
+</p>
+<br>
+
+<h3>{% trans "Endorsed" %}</h3>
+<p>
+    {% blocktrans %}
+        Candidate is endorsed by NARAL Pro-Choice Massachusetts.
+    {% endblocktrans %}
+</p>
+ 
+<h3>{% trans "Pro-Choice" %}</h3>
+<p>
+    {% blocktrans %}
+        Candidate believes abortion should be safe, legal, and accessible; supports access to family planning services and comprehensive health education, including information about abstinence and contraception.
+    {% endblocktrans %}
+</p>
+
+<h3>{% trans "Anti-Choice" %}</h3>
+<p>
+    {% blocktrans %}
+        Candidate opposes a woman's right to choose abortion or supports it in such limited circumstances as to render the right to choose meaningless.
+    {% endblocktrans %}
+</p>
+
+<h3>{% trans "Mixed" %}</h3>
+<p>
+    {% blocktrans %}
+        Candidate supports a woman's right to choose with restrictions.
+    {% endblocktrans %}
+</p>
+
+<h3>{% trans "Unknown" %}</h3>
+<p>
+    {% blocktrans %}
+        Candidate's stance is unclear.
+    {% endblocktrans %}
+</p>
+
+<br>
+<p>
+    {% blocktrans %}
+        Note: Some legislators rated "Anti-Choice" or "Mixed" support access to family planning services and/or comprehensive health education.
+    {% endblocktrans %}
+</p>
+
+<br>
+<h2>{% trans "Endorsement Policy" %}</h2>
+<p>
+    {% blocktrans %}
+        NARAL Pro-Choice Massachusetts endorses candidates with strong pro-choice positions and structured campaigns. Since we place a high priority on issue leadership and a pro-choice voting record, in certain races we have endorsed one pro-choice candidate over another.
+    {% endblocktrans %}
+</p>
+
+{% endblock %}

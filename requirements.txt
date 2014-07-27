@@ -13,6 +13,7 @@ Unipath==1.0
 django_compressor==1.4
 titlecase==0.6.0
 dj-static==0.0.6
+unicodecsv==0.9.4
 
 # Sunlight Foundation API bindings
 sunlight==1.2.6

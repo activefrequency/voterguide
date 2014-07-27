@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block content_header %}
+    <h1>{% trans "Candidate Ratings" %}</h1>
+{% endblock %}
+
+{% block content %}
+    
+    <form action="{% url 'candidate_list' %}" method="GET">
+        <table class="table-filter">
+            <tr>
+                <td>{% trans "Office" %}</td>
+                <td>{% trans "District" %}</td>
+                <td>{% trans "Party" %}</td>
+                <td>{% trans "Rating" %}</td>
+                <td>{% trans "Name" %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>{{ candidate_filter.office }}</td>
+                <td>{{ candidate_filter.district }}</td>
+                <td>{{ candidate_filter.party }}</td>
+                <td>{{ candidate_filter.rating }}</td>
+                <td>
+                    <input type="text" id="candidate_name_filter">
+                </td>
+                <td>
+                    <input type="submit" class="btn btn-primary" value="{% trans 'Filter' %}">
+                </td>
+            </tr>
+        </table>
+        
+    </form>
+    <br>
+
+    <table id="candidate_list" class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
+        <thead>
+            <tr>
+                <th>{% trans "Office" %}</th>
+                <th>{% trans "District" %}</th>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Party" %}</th>
+                <th>{% trans "Rating" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidate in candidates %}
+                <tr class="{% if candidate.rating == candidate.RATING_ENDORSED %}success{% endif %}" data-filter-value="{{ candidate.person.full_name }}">
+                    <td>{{ candidate.race.office.name }}</td>
+                    <td>{% if candidate.race.district %}{{ candidate.race.district.name }}{% else %}{% trans "Statewide" %}{% endif %}</td>
+                    <td>{{ candidate.person.full_name }} {% if candidate.is_incumbent %}({% trans "Incumbent" %}){% endif %}</td>
+                    <td>{{ candidate.get_party_display }}</td>
+                    <td>{{ candidate.get_rating_display }}</td>
+                    {% if candidate.rating == candidate.RATING_ENDORSED %}
+                        <td class="nobg icon-container">
+                            <i class="fa fa-check-circle"></i>
+                        </td>
+                        <td class="nobg">
+                            <a href="mailto:choice@prochoicemass.org?subject=I want to volunteer for {{ candidate.person.full_name }}!">{% trans "Volunteer!" %}</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#candidate_name_filter').on('keyup', function(e) {
+            var value = $(this).val().toLowerCase();
+            $("#candidate_list tbody tr").each(function() {
+                var filter_value = $(this).data('filter-value');
+                if (filter_value && filter_value.toLowerCase().search(value) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

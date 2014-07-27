@@ -1,0 +1,43 @@
+{% load i18n %}
+
+{# This is a district lookup form #}
+
+<form method="GET" id="address_lookup">
+    <label for="address">{% trans "Your Address" %}:</label>
+    <br>
+    <input type="text" id="address" name="address" size="50" placeholder="Street, City, State ZIP" value="{{ address }}">
+    <br><br>
+    <input type="submit" class="btn btn-primary" value="{% trans 'Find My Candidates!' %}">
+</form>
+
+<form method="GET" action="{% url 'district_lookup' %}" id="district_lookup">
+    <input type="hidden" name="lat" id="address_lat">
+    <input type="hidden" name="lng" id="address_lng">
+    <input type="hidden" name="address" id="address_str">
+</form>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#address_lookup').on('submit', function(e) {
+            e.preventDefault();
+            var address = $('#address').val();
+
+            // GOOGLE
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({'address': address}, function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                window.log("Google geocode successful");
+                var loc = results[0].geometry.location;
+                $('#address_lat').val(loc.lat());
+                $('#address_lng').val(loc.lng());
+                $('#address_str').val(address);
+                $('#district_lookup').submit();
+              } else {
+                window.log("Geocode was not successful for the following reason: " + status);
+                alert("Sorry, we couldn't find that address. Please check for typos and try again.");
+              }
+            });
+        });
+    });
+</script>

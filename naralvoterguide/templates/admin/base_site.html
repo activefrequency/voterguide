@@ -5,6 +5,10 @@
 
 {% block branding %}
 <h1 id="site-name">{% trans 'NARAL Voter Guide Admin' %}</h1>
+{% if user.is_superuser %}
+    <p style="margin-left: 2em;"><a href="{% url 'import_candidates' %}">{% trans 'Import Candidates' %}</a></p>
+{% endif %}
+
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

@@ -1,53 +1,33 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block extrahead %}
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyDa_47diC1hpzsMM-6bszFZLOfDS97EXek"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}voterguide/voterguide.js"></script>
+{% block content_header %}
+    <h1>{% trans "Support Choice - Find Your Candidates!" %}</h1>
 {% endblock %}
 
 {% block content %}
-    
-    <h1>District Lookup</h1>
-    <br><br>
 
-    <form method="GET" id="address_lookup">
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address" size="50">
-        <br><br>
-        <input type="submit" class="btn btn-primary" value="OK">
-    </form>
+<p>
+    {% blocktrans %}
+        A woman's right to choose is under unprecedented attack. Massachusetts has not been immune to the wave of anti-choice fervor that is sweeping the country. As a result of the 2010 elections, we nearly lost our pro-choice majority in the Massachusetts House of Representatives. In 2012, we seek to win back a substantial majority in the House and maintain our strong majority in the Senate.
+    {% endblocktrans %}
+</p>
 
-    <form method="GET" action="{% url 'district_lookup' %}" id="district_lookup">
-        <input type="hidden" name="lat" id="address_lat">
-        <input type="hidden" name="lng" id="address_lng">
-    </form>
+<br>
+<p>
+    {% blocktrans %}
+        The primary will be on <b>Tuesday, September 9, 2014</b> and the general election will be on <b>Tuesday, November 4, 2014</b>.
+    {% endblocktrans %}
+</p>
+<br>
 
-{% endblock %}
+<p>
+    {% blocktrans %}
+        Find your local candidates using the form below:
+    {% endblocktrans %}
+</p>
+<br>
 
-{% block extrajs %}
-    <script type="text/javascript">
-        $(document).ready(function() {
+    {% include "voterguide/lookup_form.html" %}
 
-
-            $('#address_lookup').on('submit', function(e) {
-                e.preventDefault();
-                var address = $('#address').val();
-
-                // GOOGLE
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({'address': address}, function(results, status) {
-                  if (status == google.maps.GeocoderStatus.OK) {
-                    window.log("Google geocode successful");
-                    var loc = results[0].geometry.location;
-                    $('#address_lat').val(loc.lat());
-                    $('#address_lng').val(loc.lng());
-                    $('#district_lookup').submit();
-                  } else {
-                    window.log("Geocode was not successful for the following reason: " + status);
-                  }
-                });
-            });
-
-        });
-    </script>
 {% endblock %}

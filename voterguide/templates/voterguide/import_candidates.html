@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+
+{% endblock %}
+
+{% block content_header %}
+    <h1>{% trans "Import Candidates" %}</h1>
+{% endblock %}
+
+{% block content %}
+    <p>
+        {% blocktrans %}
+            Use this tool to import candidates from a CSV. The CSV must have the following fields, in this order:
+        {% endblocktrans %}
+        <b>
+            {% blocktrans %}
+                Office, District, First Name, Last Name, Party, Rating, Incumbent (Y/N)
+            {% endblocktrans %}
+        </b>
+    </p>
+    <p>
+        {% blocktrans %}
+            It should NOT have a header row.
+        {% endblocktrans %}
+    </p>
+
+    <form action="{% url 'import_candidates' %}" method="POST" role="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="{% trans 'Import' %}">
+    </form>
+
+{% endblock %}
+
+{% block extrajs %}
+
+{% endblock %}

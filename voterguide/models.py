@@ -1,7 +1,7 @@
 from __future__ import unicode_literals, print_function, division, absolute_import
 
-from django.contrib.gis.db import models
 from django.utils.translation import ugettext as _
+from django.contrib.gis.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.conf import settings
 
@@ -75,7 +75,7 @@ class District(models.Model):
     class Meta:
         verbose_name = _("District")
         verbose_name_plural = _("Districts")
-        ordering = ['-chamber', 'idx', 'code', 'name']
+        ordering = ['chamber', 'idx', 'code', 'name']
 
     def __str__(self):
         return '{} - {}'.format(self.get_chamber_display(), self.name)
@@ -148,6 +148,12 @@ class Race(models.Model):
         else:
             return "{} - {} - {}".format(self.election.name, self.state, self.office.name)
 
+    def table_label(self):
+        if self.district:
+            return "{} - {}".format(self.office.name, self.district.name)
+        else:
+            return self.office.name
+
 
 @python_2_unicode_compatible
 class Person(models.Model):
@@ -209,6 +215,7 @@ class Candidate(models.Model):
     party = models.CharField(verbose_name=_("Party"), max_length=2, choices=PARTY_CHOICES)
     rating = models.IntegerField(verbose_name=_("Rating"), choices=RATING_CHOICES, default=RATING_UNKNOWN)
     featured = models.BooleanField(verbose_name=_("Featured"), default=False)
+    winner = models.BooleanField(verbose_name=_("Winner"), default=False)
 
     created_on = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True, editable=False)
     modified_on = models.DateTimeField(verbose_name=_("Modified"), auto_now=True, editable=False)
