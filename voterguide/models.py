@@ -189,7 +189,7 @@ class Candidate(models.Model):
     PARTY_I = _("I")
     PARTY_U = _("U")
     PARTY_CHOICES = (
-        (PARTY_D, _("Democratic")),
+        (PARTY_D, _("Democrat")),
         (PARTY_R, _("Republican")),
         (PARTY_I, _("Independent")),
         (PARTY_U, _("United Ind. Party")),
@@ -216,6 +216,9 @@ class Candidate(models.Model):
     rating = models.IntegerField(verbose_name=_("Rating"), choices=RATING_CHOICES, default=RATING_UNKNOWN)
     featured = models.BooleanField(verbose_name=_("Featured"), default=False)
     winner = models.BooleanField(verbose_name=_("Winner"), default=False)
+    # derived fields to make sorting & filtering easier
+    is_endorsed = models.BooleanField(verbose_name=_("Endorsed?"), default=False, editable=False)
+    is_pro = models.BooleanField(verbose_name=_("Endorsed or Pro?"), default=False, editable=False)
 
     created_on = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True, editable=False)
     modified_on = models.DateTimeField(verbose_name=_("Modified"), auto_now=True, editable=False)
@@ -227,6 +230,11 @@ class Candidate(models.Model):
 
     def __str__(self):
         return self.person.full_name
+
+    def save(self, *args, **kwargs):
+        self.is_endorsed = (self.rating == Candidate.RATING_ENDORSED)
+        self.is_pro = (self.rating == Candidate.RATING_ENDORSED) or (self.rating == Candidate.RATING_PRO)
+        super(Candidate, self).save(*args, **kwargs)
 
 
 # list of ordinals - see District.normalize_name

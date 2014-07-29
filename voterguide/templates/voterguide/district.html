@@ -10,7 +10,7 @@
 
 {% block content %}
     
-    <p>
+    <p class="statewide-endorsements">
         {% trans "Your statewide NARAL-endorsed candidates are:" %}
         {% for candidate in statewide_endorsees %}
             <b>{{ candidate.person.full_name }}</b> ({{ candidate.race.table_label }}){% if not forloop.last %}, {% endif %}
@@ -26,34 +26,39 @@
             {% trans "Your local candidates are:" %}
         </p>
 
-        <table class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
-            <thead>
-                <tr>
-                    <th>{% trans "Office" %}</th>
-                    <th>{% trans "Name" %}</th>
-                    <th>{% trans "Party" %}</th>
-                    <th>{% trans "Rating" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for candidate in candidates %}
-                    <tr class="{% if candidate.rating == candidate.RATING_ENDORSED %}success{% endif %}">
-                        <td>{{ candidate.race.table_label }}</td>
-                        <td>{{ candidate.person.full_name }} {% if candidate.is_incumbent %}({% trans "Incumbent" %}){% endif %}</td>
-                        <td>{{ candidate.get_party_display }}</td>
-                        <td>{{ candidate.get_rating_display }}</td>
-                        {% if candidate.rating == candidate.RATING_ENDORSED %}
-                            <td class="nobg icon-container">
-                                <i class="fa fa-check-circle"></i>
-                            </td>
-                            <td class="nobg">
-                                <a href="mailto:choice@prochoicemass.org?subject=I want to volunteer for {{ candidate.person.full_name }}!">{% trans "Volunteer!" %}</a>
-                            </td>
-                        {% endif %}
+        {% regroup candidates by race.table_label as candidates_by_office %}
+
+        {% for cbo in candidates_by_office %}
+
+            <h3 class="office-label">{{ cbo.grouper }}</h3>
+
+            <table class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
+                <thead>
+                    <tr>
+                        <th>{% trans "Name" %}</th>
+                        <th>{% trans "Party" %}</th>
+                        <th>{% trans "Pro-Choice Rating" %}</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for candidate in cbo.list %}
+                        <tr class="{% if candidate.rating == candidate.RATING_ENDORSED %}success{% endif %}">
+                            <td>{{ candidate.person.full_name }} {% if candidate.is_incumbent %}<b>({% trans "Incumbent" %})</b>{% endif %}</td>
+                            <td>{{ candidate.get_party_display }}</td>
+                            <td>{{ candidate.get_rating_display }}</td>
+                            {% if candidate.rating == candidate.RATING_ENDORSED %}
+                                <td class="nobg icon-container">
+                                    <i class="fa fa-check-circle"></i>
+                                </td>
+                                <td class="nobg">
+                                    <a href="mailto:choice@prochoicemass.org?subject=I want to volunteer for {{ candidate.person.full_name }}!">{% trans "Volunteer!" %}</a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
     {% else %}
         <h4>{% trans "Find Your Local Candidates" %}</h4>
 

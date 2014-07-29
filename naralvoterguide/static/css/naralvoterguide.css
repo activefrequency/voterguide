@@ -96,6 +96,10 @@ a, a:hover, a:focus {
     color: #2a6496;
 }
 
+h3.office-label {
+    margin-top: 30px;
+}
+
 TABLE.table-candidate-list {
     border-right: 0;
     border-bottom: 0;
@@ -108,6 +112,7 @@ TABLE.table TBODY TR TD.icon-container {
     color: green;
     font-size: 24px;
     line-height: 28px;
+    width: 40px;
 }
 
 TABLE.table TBODY TR TD.nobg {
@@ -115,3 +120,6 @@ TABLE.table TBODY TR TD.nobg {
     border: none !important;
 }
 
+.statewide-endorsements {
+    font-size: 1.2em;
+}
