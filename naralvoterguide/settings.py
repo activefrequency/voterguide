@@ -143,6 +143,13 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
+# compress offline
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+COMPRESS_PRECOMPILERS = (
+    ('text/less', 'lessc {infile} > {outfile}'),
+)
+
 LOGIN_URL = 'admin.login'
 
 EMAIL_HOST = 'smtp.mandrillapp.com'
