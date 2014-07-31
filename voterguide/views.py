@@ -18,9 +18,11 @@ import unicodecsv
 
 def home(request):
     current_election = Election.objects.get(is_active=True)
+    featured = Candidate.objects.filter(race__election=current_election, featured=True).order_by('?').select_related('person').first()
 
     return render(request, "voterguide/home.html", {
         'active_page': 'home',
+        'featured': featured,
     })
 
 
@@ -95,7 +97,7 @@ def candidate_list(request):
     candidates = Candidate.objects.filter(race__election=current_election).select_related('person', 'race', 'race__office', 'race__district').order_by(
         'race__state', 'race__election', 'race__office', 'race__district', '-is_endorsed', '-is_pro', '-is_incumbent', 'person__last_name', 'person__first_name')
 
-    candidate_filter = CandidateFilterForm(request.GET)
+    candidate_filter = CandidateFilterForm(request.GET, label_suffix="")
     if not candidate_filter.is_valid():
         raise Exception("candidate_filter not valid - this shouldn't happen")
 
@@ -120,6 +122,11 @@ def candidate_list(request):
             candidates = candidates.filter(Q(rating=Candidate.RATING_PRO) | Q(rating=Candidate.RATING_ENDORSED))
         else:
             candidates = candidates.filter(rating=rating)
+
+    # "Only races with endorsements"
+    with_endorsements = candidate_filter.cleaned_data.get('with_endorsements', None)
+    if with_endorsements:
+        candidates = candidates.filter(race__has_endorsement=True)
 
     return render(request, "voterguide/candidate_list.html", {
         'candidates': candidates,

@@ -133,6 +133,8 @@ class Race(models.Model):
     office = models.ForeignKey(Office)
     state = models.CharField(verbose_name=_("State"), max_length=2, default=settings.VOTERGUIDE_SETTINGS['DEFAULT_STATE'])
     district = models.ForeignKey(District, blank=True, null=True, help_text=_("Optional - blank if statewide race."))
+    # Is there an endorsed candidate in this race? (Derived)
+    has_endorsement = models.BooleanField(default=False, editable=False)
 
     created_on = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True, editable=False)
     modified_on = models.DateTimeField(verbose_name=_("Modified"), auto_now=True, editable=False)
@@ -147,6 +149,10 @@ class Race(models.Model):
             return "{} - {} - {} - {}".format(self.election.name, self.state, self.office.name, self.district.name)
         else:
             return "{} - {} - {}".format(self.election.name, self.state, self.office.name)
+
+    def save(self, *args, **kwargs):
+        self.has_endorsement = self.candidate_set.filter(is_endorsed=True).exists()
+        super(Race, self).save(*args, **kwargs)
 
     def table_label(self):
         if self.district:
@@ -163,7 +169,8 @@ class Person(models.Model):
     last_name = models.CharField(verbose_name=_("Last name"), blank=True, max_length=50)
     suffixes = models.CharField(verbose_name=_("Suffixes"), blank=True, max_length=50)
     openstates_legid = models.CharField(verbose_name=_("OpenStates ID"), blank=True, max_length=20, help_text=_("Permanent OpenStates leg_id - i.e. 'ILL000555'"))
-    photo_url = models.URLField(verbose_name=_("Photo URL"), blank=True, help_text=_("URL to candidate photo (optional)"))
+    photo_url = models.CharField(verbose_name=_("Photo URL"), blank=True, max_length=200, help_text=_("URL to candidate photo (optional)"))
+    blurb = models.TextField(verbose_name=_("Blurb"), blank=True, max_length=500, help_text=_("Blurb if featured (can contain HTML)"))
 
     created_on = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True, editable=False)
     modified_on = models.DateTimeField(verbose_name=_("Modified"), auto_now=True, editable=False)
@@ -192,7 +199,7 @@ class Candidate(models.Model):
         (PARTY_D, _("Democrat")),
         (PARTY_R, _("Republican")),
         (PARTY_I, _("Independent")),
-        (PARTY_U, _("United Ind. Party")),
+        (PARTY_U, _("United Ind.")),
     )
 
     RATING_UNKNOWN = 0
@@ -235,6 +242,8 @@ class Candidate(models.Model):
         self.is_endorsed = (self.rating == Candidate.RATING_ENDORSED)
         self.is_pro = (self.rating == Candidate.RATING_ENDORSED) or (self.rating == Candidate.RATING_PRO)
         super(Candidate, self).save(*args, **kwargs)
+        # save Race to make sure that has_endorsement is up-to-date
+        self.race.save()
 
 
 # list of ordinals - see District.normalize_name

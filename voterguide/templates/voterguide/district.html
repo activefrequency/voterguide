@@ -10,22 +10,9 @@
 
 {% block content %}
     
-    <p class="statewide-endorsements">
-        {% trans "Your statewide NARAL-endorsed candidates are:" %}
-        {% for candidate in statewide_endorsees %}
-            <b>{{ candidate.person.full_name }}</b> ({{ candidate.race.table_label }}){% if not forloop.last %}, {% endif %}
-        {% endfor %}
-
-        &nbsp;
-        <a href="{% url 'statewide' %}">{% trans "Learn More..." %}</a>
-    </p>
-    <br>
+    {% include "voterguide/statewide_endorsements.html" %}
     
     {% if address and not form_error %}
-        <p>
-            {% trans "Your local candidates are:" %}
-        </p>
-
         {% regroup candidates by race.table_label as candidates_by_office %}
 
         {% for cbo in candidates_by_office %}
@@ -35,9 +22,9 @@
             <table class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
                 <thead>
                     <tr>
-                        <th>{% trans "Name" %}</th>
-                        <th>{% trans "Party" %}</th>
-                        <th>{% trans "Pro-Choice Rating" %}</th>
+                        <th class="col-name">{% trans "Name" %}</th>
+                        <th class="col-party">{% trans "Party" %}</th>
+                        <th class="col-rating">{% trans "Pro-Choice Rating" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,6 +47,7 @@
             </table>
         {% endfor %}
     {% else %}
+        <br>
         <h4>{% trans "Find Your Local Candidates" %}</h4>
 
         {% if form_error %}

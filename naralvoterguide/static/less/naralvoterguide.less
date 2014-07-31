@@ -49,6 +49,14 @@ a, a:link, a:hover, a:active, a:focus, a:visited {
         }
     }
 
+    .donate-btn {
+        background: #cf142b;
+        color: white;
+        font-weight: bold;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .nav > li > a {
         padding: 6px 12px;
         color: #B4003F;
@@ -121,6 +129,27 @@ h3.office-label {
 TABLE.table-candidate-list {
     border-right: 0;
     border-bottom: 0;
+    width: auto;
+
+    .col-office {
+        width: 100px;
+    }
+
+    .col-district {
+        width: 315px;
+    }
+
+    .col-name {
+        width: 250px;
+    }
+
+    .col-party {
+        width: 100px;
+    }
+
+    .col-rating {
+        width: 150px;
+    }
 }
 
 TABLE.table TBODY TR TD.icon-container {
@@ -138,13 +167,77 @@ TABLE.table TBODY TR TD.nobg {
     border: none !important;
 }
 
-.table-filter TR TD {
-    padding-right: 10px;
+.table-filter {
+    
+    TR TD {
+        padding-right: 10px;
+    }
+
+    LABEL {
+        margin-bottom: 0;
+    }
 }
 
 .statewide-endorsements {
     font-size: 1.2em;
 }
+
+
+/* Endorsement Box */
+
+.endorsement-box {
+    max-width: 530px;
+    border-radius: 10px;
+    border: 1px dotted #161e69;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    img {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .name {
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .blurb {
+
+    }
+}
+
+
+/* Featured Box */
+
+.featured-box {
+    max-width: 360px;
+    border-radius: 10px;
+    border: 2px solid #161e69;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    float: right;
+
+    img {
+        max-width: 300px;
+    }
+
+    h4 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #161e69;
+    }
+
+    .blurb {
+        margin-top: 20px;
+    }
+}
+
 
 
 /* Lookup Form */

@@ -10,10 +10,6 @@
 
 {% block content %}
     
-    <p>
-        {% trans "Your statewide candidates are:" %}
-    </p>
-
     {% regroup candidates by race.table_label as candidates_by_office %}
 
     {% for cbo in candidates_by_office %}
@@ -23,9 +19,9 @@
         <table class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
             <thead>
                 <tr>
-                    <th>{% trans "Name" %}</th>
-                    <th>{% trans "Party" %}</th>
-                    <th>{% trans "Pro-Choice Rating" %}</th>
+                    <th class="col-name">{% trans "Name" %}</th>
+                    <th class="col-party">{% trans "Party" %}</th>
+                    <th class="col-rating">{% trans "Pro-Choice Rating" %}</th>
                 </tr>
             </thead>
             <tbody>

@@ -7,6 +7,20 @@
 
 {% block content %}
 
+{% if featured %}
+    <div class="featured-box">
+        <h4>{% trans "Featured Candidate" %}</h4>
+
+        {% if featured.person.photo_url %}
+            <img src="{{ featured.person.photo_url }}">
+        {% endif %}
+        <br>
+        <div class="blurb">
+            {{ featured.person.blurb|safe }}
+        </div>
+    </div>
+{% endif %}
+
 <h2>
     {% blocktrans %}
         Find your candidates and help us protect and elect pro-choice candidates in 2014!

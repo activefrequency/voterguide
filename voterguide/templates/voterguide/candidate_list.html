@@ -13,11 +13,11 @@
     <form action="{% url 'candidate_list' %}" method="GET">
         <table class="table-filter">
             <tr>
-                <td>{% trans "Office" %}</td>
-                <td>{% trans "District" %}</td>
-                <td>{% trans "Party" %}</td>
-                <td>{% trans "Pro-Choice Rating" %}</td>
-                <td>{% trans "Name" %}</td>
+                <td>{{ candidate_filter.office.label_tag }}</td>
+                <td>{{ candidate_filter.district.label_tag }}</td>
+                <td>{{ candidate_filter.party.label_tag }}</td>
+                <td>{{ candidate_filter.rating.label_tag }}</td>
+                <td><label for="candidate_name_filter">{% trans "Name" %}</label></td>
                 <td></td>
             </tr>
             <tr>
@@ -32,6 +32,14 @@
                     <input type="submit" class="btn btn-primary" value="{% trans 'Filter' %}">
                 </td>
             </tr>
+            <tr>
+                <td colspan="3">
+                    <br>
+                    <!-- <input type="checkbox"> <label></label> -->
+                    {{ candidate_filter.with_endorsements }}
+                    {{ candidate_filter.with_endorsements.label_tag }}
+                </td>
+            </tr>
         </table>
         
     </form>
@@ -40,11 +48,11 @@
     <table id="candidate_list" class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
         <thead>
             <tr>
-                <th>{% trans "Office" %}</th>
-                <th>{% trans "District" %}</th>
-                <th>{% trans "Name" %}</th>
-                <th>{% trans "Party" %}</th>
-                <th>{% trans "Pro-Choice Rating" %}</th>
+                <th class="col-office">{% trans "Office" %}</th>
+                <th class="col-district">{% trans "District" %}</th>
+                <th class="col-name">{% trans "Name" %}</th>
+                <th class="col-party">{% trans "Party" %}</th>
+                <th class="col-rating">{% trans "Pro-Choice Rating" %}</th>
             </tr>
         </thead>
         <tbody>

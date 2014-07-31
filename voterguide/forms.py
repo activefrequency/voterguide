@@ -21,4 +21,6 @@ class CandidateFilterForm(forms.Form):
     district = forms.ChoiceField(label=_("District"), required=False, choices=([('', _(" - ANY - ")), ('S', _("Statewide")), ] + [(d.id, d) for d in District.objects.all()]))
     party = forms.ChoiceField(label=_("Party"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.PARTY_CHOICES) )
     # 'Pro' should include 'Endorsed' - handle in the view
-    rating = forms.ChoiceField(label=_("Rating"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.RATING_CHOICES) )
+    rating = forms.ChoiceField(label=_("Pro-Choice Rating"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.RATING_CHOICES) )
+    # only races with endorsements
+    with_endorsements = forms.BooleanField(label=_("Only show races with endorsements"), required=False)
