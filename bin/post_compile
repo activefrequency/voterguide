@@ -20,6 +20,6 @@ fi
 
 python manage.py syncdb --noinput
 python manage.py migrate --noinput
-python manage.py compress --noinput
+python manage.py compress -v 0
 
 echo "-----> Post-compile done"
