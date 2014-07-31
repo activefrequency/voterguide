@@ -149,7 +149,11 @@ def import_candidates(request):
             election = form.cleaned_data.get('election')
             data = form.cleaned_data.get('csv')
             f = StringIO.StringIO(data)
-            reader = unicodecsv.DictReader(f, fieldnames=['Office', 'District', 'FirstName', 'LastName', 'Party', 'Rating', 'Incumbent'])
+            reader = unicodecsv.DictReader(f, encoding='utf-8', fieldnames=['Office', 'District', 'Priority', 'Status', 'FirstName', 'LastName', 'Party', 'Rating', 'Incumbent', 'Endorsed'])
+
+            # Candidate For,District,Priority,Status,First,Last,Party,Rating,Incumbent?,Voted to Endorse?
+            # State Representative,6th Hampden,4,Contested,Michael,Finn,D,Unknown,Yes,
+
 
             num_imported = 0
             for row in reader:
@@ -178,11 +182,14 @@ def import_candidates(request):
                 
                 # Find or create Person/Candidate
                 # TODO: what about people with same first/last name? Need to check for district, too...
-                person, created = Person.objects.get_or_create(first_name=row['FirstName'], last_name=row['LastName'])
+                person, created = Person.objects.get_or_create(first_name=row['FirstName'].strip(), last_name=row['LastName'].strip())
+                rating = rating_dict[row['Rating']]
+                if row['Endorsed'].strip().upper().find("Y") != -1:
+                    rating = Candidate.RATING_ENDORSED
                 candidate, created = Candidate.objects.get_or_create(person=person, race=race, defaults={
-                    'is_incumbent': row['Incumbent'] == 'Y',
+                    'is_incumbent': row['Incumbent'].strip().upper().find("Y") != -1,
                     'party': row['Party'],
-                    'rating': rating_dict[row['Rating']],
+                    'rating': rating,
                     'featured': False,
                     'winner': False,
                 })

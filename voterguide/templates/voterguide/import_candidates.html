@@ -16,15 +16,18 @@
         {% endblocktrans %}
         <b>
             {% blocktrans %}
-                Office, District, First Name, Last Name, Party, Rating, Incumbent (Y/N)
+                Office, District, Priority, Status, First Name, Last Name, Party, Rating, Incumbent (Y/N), Endorsed (Y/N)
             {% endblocktrans %}
         </b>
     </p>
-    <p>
+    <ul>
         {% blocktrans %}
-            It should NOT have a header row.
+            <li> It should NOT have a header row.</li>
+            <li> "Incumbent" and "Endorsed" will read as Yes if there's a "Y" in the field, otherwill it'll be a No.</li>
+            <li> "Rating" should be one of: [Endorsed, Pro-Choice, Mixed, Anti-Choice, Uknown] (OK to indicate endorsement with "Endorsed" column instead)</li>
+            <li> "Priority" and "Status" are ignored, so it doesn't matter what you put there, but should exist so the columns match up.</li>
         {% endblocktrans %}
-    </p>
+    </ul>
 
     <form action="{% url 'import_candidates' %}" method="POST" role="form">
         {% csrf_token %}
