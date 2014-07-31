@@ -14,11 +14,12 @@ if [ -f bin/install_nodejs ]; then
     chmod +x bin/install_nodejs
     bin/install_nodejs
 
+    # Install Node modules (e.g. LESS)
     npm install -g less
 fi
 
-python app/manage.py syncdb --noinput
-python app/manage.py migrate --noinput
-python app/manage.py compress --noinput
+python manage.py syncdb --noinput
+python manage.py migrate --noinput
+python manage.py compress --noinput
 
 echo "-----> Post-compile done"
