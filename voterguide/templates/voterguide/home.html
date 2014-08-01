@@ -26,7 +26,11 @@
         Find your candidates and help us protect and elect pro-choice candidates in 2014!
     {% endblocktrans %}
 </h2>
+<br>
 
+{% include "voterguide/lookup_form.html" %}
+
+<br>
 <p>
     {% blocktrans %}
         A woman's right to choose is under unprecedented attack. Massachusetts has not been immune to the wave of anti-choice fervor that is sweeping the country. Every election, we are on the verge of losing our pro-choice majority in the Massachusetts House of Representatives. With the 2014 U.S. Supreme Court decisions limiting women's access to safe and affordable reproductive health care, electing pro-choice champions to pass strong laws that ensure all women have equal access to the full range of reproductive health care is more important than ever.
@@ -49,14 +53,5 @@
     {% endblocktrans %}
 </p>
 <br>
-
-<p>
-    {% blocktrans %}
-        Find your local candidates using the form below:
-    {% endblocktrans %}
-</p>
-<br>
-
-    {% include "voterguide/lookup_form.html" %}
 
 {% endblock %}
