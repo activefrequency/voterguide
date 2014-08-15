@@ -185,13 +185,19 @@ def import_candidates(request):
                 rating = rating_dict[row['Rating']]
                 if row['Endorsed'].strip().upper().find("Y") != -1:
                     rating = Candidate.RATING_ENDORSED
-                candidate, created = Candidate.objects.get_or_create(person=person, race=race, defaults={
+                values = {
                     'is_incumbent': row['Incumbent'].strip().upper().find("Y") != -1,
                     'party': row['Party'].strip(),
                     'rating': rating,
                     'featured': False,
                     'winner': False,
-                })
+                }
+                candidate, created = Candidate.objects.get_or_create(person=person, race=race, defaults=values)
+                # TODO: when 1.7 lands, can be replaced with update_or_create
+                if not created:
+                    for k, v in values.iteritems():
+                        setattr(candidate, k, v)
+                    candidate.save()
 
                 # Keep the count
                 num_imported += 1
