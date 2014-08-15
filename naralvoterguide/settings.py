@@ -134,6 +134,13 @@ INSTALLED_APPS = (
     'voterguide',
 )
 
+# Add context processors, rather than overriding defaults
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as DEFAULT_TCP
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_TCP + (
+    'voterguide.context_processors.google_analytics',
+)
+
+
 # Disable Django Debug Toolbar by default - override in settings_local if you want to turn it on
 INTERNAL_IPS = ( )
 
@@ -166,6 +173,8 @@ VOTERGUIDE_SETTINGS = {
     'DEFAULT_STATE': os.environ.get('VOTERGUIDE_DEFAULT_STATE', 'MA'),
     'DEFAULT_YEAR': os.environ.get('VOTERGUIDE_DEFAULT_YEAR', '2014'),
 }
+
+GOOGLE_ANALYTICS_PROPERTY_ID = os.environ.get('GOOGLE_ANALYTICS_PROPERTY_ID', '')
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
