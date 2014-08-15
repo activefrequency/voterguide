@@ -72,6 +72,7 @@ class CandidateAdmin(admin.ModelAdmin):
     raw_id_fields = ('person', 'race', )
     list_display = ('person', 'race', 'party', 'rating', 'is_incumbent', 'featured')
     list_filter = ('race__election', 'race__office', 'rating', 'is_incumbent', 'winner', 'party', 'featured')
+    search_fields = ('person__full_name', )
     actions = [mark_as_winner, copy_to_next_election, ]
 admin.site.register(Candidate, CandidateAdmin)
 
