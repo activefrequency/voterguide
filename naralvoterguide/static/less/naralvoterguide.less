@@ -246,7 +246,11 @@ TABLE.table TBODY TR TD.nobg {
     background: #161e69;
     padding: 15px;
     border-radius: 10px;
-    max-width: 400px;
+    max-width: 320px;
+
+    input {
+        max-width: 100%;
+    }
 }
 
 .address_lookup_form label {
@@ -254,6 +258,14 @@ TABLE.table TBODY TR TD.nobg {
 }
 
 
+/* Responsiveness */
+@media only screen and (max-width : 320px) {
+    .featured-box {
+        max-width: 320px;
 
-
+        img {
+            max-width: 260px;
+        }
+    }
+}
 
