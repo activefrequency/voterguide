@@ -9,6 +9,13 @@
 {% endblock %}
 
 {% block content %}
+
+    <p>
+        {% blocktrans %}
+            NARAL Pro-Choice Massachusetts makes every effort to provide our questionnaire to every candidate in every race to provide voters with as much information about their candidates as possible. Candidates with Unknown ratings have not responded to repeated requests for a completed questionnaire or do not have publicly available contact information. If you are a candidate and would like your rating updated, please email <a href="mailto:kevin@prochoicemass.org">kevin@prochoicemass.org</a> to request a questionnaire.
+        {% endblocktrans %}
+    </p>
+    <br>
     
     <form action="{% url 'candidate_list' %}" method="GET">
         <table class="table-filter">
