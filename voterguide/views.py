@@ -154,7 +154,6 @@ def import_candidates(request):
             # Candidate For,District,Priority,Status,First,Last,Party,Rating,Incumbent?,Voted to Endorse?
             # State Representative,6th Hampden,4,Contested,Michael,Finn,D,Unknown,Yes,
 
-
             num_imported = 0
             for row in reader:
                 # Look up Office
@@ -188,7 +187,7 @@ def import_candidates(request):
                     rating = Candidate.RATING_ENDORSED
                 candidate, created = Candidate.objects.get_or_create(person=person, race=race, defaults={
                     'is_incumbent': row['Incumbent'].strip().upper().find("Y") != -1,
-                    'party': row['Party'],
+                    'party': row['Party'].strip(),
                     'rating': rating,
                     'featured': False,
                     'winner': False,
