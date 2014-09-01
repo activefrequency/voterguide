@@ -157,7 +157,7 @@ COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} > {outfile}'),
 )
 
-LOGIN_URL = 'admin.login'
+LOGIN_URL = '/tools/login/'
 
 EMAIL_HOST = 'smtp.mandrillapp.com'
 EMAIL_PORT = 587
