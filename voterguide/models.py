@@ -207,11 +207,13 @@ class Candidate(models.Model):
     RATING_UNKNOWN = 0
     RATING_ANTI = 20
     RATING_MIXED = 40
+    RATING_RECOMMENDED = 50
     RATING_PRO = 60
     RATING_ENDORSED = 100
     RATING_CHOICES = (
         (RATING_ENDORSED, _("Endorsed")),
         (RATING_PRO, _("Pro-Choice")),
+        (RATING_RECOMMENDED, _("Recommended")),
         (RATING_MIXED, _("Mixed")),
         (RATING_ANTI, _("Anti-Choice")),
         (RATING_UNKNOWN, _("Unknown")),
