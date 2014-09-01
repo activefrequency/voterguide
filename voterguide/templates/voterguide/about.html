@@ -1,88 +1,72 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n front_tags %}
+
+{% block extrahead %}
+{% endblock %}
 
 {% block content_header %}
-    <h1>{% trans "About NARAL Pro-Choice Massachusetts" %}</h1>
+    {% front_edit "about-header" %}
+        <h1>About NARAL Pro-Choice Massachusetts</h1>
+    {% end_front_edit %}
 {% endblock %}
 
 {% block content %}
 
+{% front_edit "about-content" %}
 <p>
-    {% blocktrans %}
-        Since 1972, NARAL Pro-Choice Massachusetts has led the way in advancing reproductive freedom for women and families in the Commonwealth.
-    {% endblocktrans %}
+    Since 1972, NARAL Pro-Choice Massachusetts has led the way in advancing reproductive freedom for women and families in the Commonwealth.
 </p>
 
 <p>
-    {% blocktrans %}
-        Our mission is to develop and sustain a grassroots constituency that uses the political process to guarantee every woman the right to make personal decisions regarding the full range of reproductive choices, including preventing unintended pregnancy; bearing healthy children; and choosing safe, legal, accessible abortion.
-    {% endblocktrans %}
+    Our mission is to develop and sustain a grassroots constituency that uses the political process to guarantee every woman the right to make personal decisions regarding the full range of reproductive choices, including preventing unintended pregnancy; bearing healthy children; and choosing safe, legal, accessible abortion.
 </p>
 
 <p>
-    {% blocktrans %}
-        With the right to choose under attack across the country, we need more elected officials here who will stand up and safeguard a woman's ability to make personal, private decisions about pregnancy and childbearing. That's why, each campaign season, we work to elect pro-choice candidates by providing tactical support to their campaigns and mobilizing the pro-choice majority to vote.
-    {% endblocktrans %}
+    With the right to choose under attack across the country, we need more elected officials here who will stand up and safeguard a woman's ability to make personal, private decisions about pregnancy and childbearing. That's why, each campaign season, we work to elect pro-choice candidates by providing tactical support to their campaigns and mobilizing the pro-choice majority to vote.
 </p>
-
 
 <br>
-<h2>{% trans "About Our Ratings" %}</h2>
+<h2>About Our Ratings</h2>
 
 <p>
-    {% blocktrans %}
-        Ratings are based on a candidate's voting record, responses to our questionnaire, and/or information gathered by the NARAL Pro-Choice Massachusetts Political Committee.
-    {% endblocktrans %}
+    Ratings are based on a candidate's voting record, responses to our questionnaire, and/or information gathered by the NARAL Pro-Choice Massachusetts Political Committee.
 </p>
 
-<h3>{% trans "Endorsed" %}</h3>
+<h3>Endorsed</h3>
 <p>
-    {% blocktrans %}
-        Candidate is endorsed by NARAL Pro-Choice Massachusetts.
-    {% endblocktrans %}
+    Candidate is endorsed by NARAL Pro-Choice Massachusetts.
 </p>
  
-<h3>{% trans "Pro-Choice" %}</h3>
+<h3>Pro-Choice</h3>
 <p>
-    {% blocktrans %}
-        Candidate believes abortion should be safe, legal, and accessible; supports access to family planning services and comprehensive health education, including information about abstinence and contraception.
-    {% endblocktrans %}
+    Candidate believes abortion should be safe, legal, and accessible; supports access to family planning services and comprehensive health education, including information about abstinence and contraception.
 </p>
 
-<h3>{% trans "Anti-Choice" %}</h3>
+<h3>Anti-Choice</h3>
 <p>
-    {% blocktrans %}
-        Candidate opposes a woman's right to choose abortion or supports it in such limited circumstances as to render the right to choose meaningless.
-    {% endblocktrans %}
+    Candidate opposes a woman's right to choose abortion or supports it in such limited circumstances as to render the right to choose meaningless.
 </p>
 
-<h3>{% trans "Mixed" %}</h3>
+<h3>Mixed</h3>
 <p>
-    {% blocktrans %}
-        Candidate supports a woman's right to choose with restrictions.
-    {% endblocktrans %}
+    Candidate supports a woman's right to choose with restrictions.
 </p>
 
-<h3>{% trans "Unknown" %}</h3>
+<h3>Unknown</h3>
 <p>
-    {% blocktrans %}
-        Candidate's stance is unclear.
-    {% endblocktrans %}
+    Candidate's stance is unclear.
 </p>
 
 <br>
 <p>
-    {% blocktrans %}
-        Note: Some legislators rated "Anti-Choice" or "Mixed" support access to family planning services and/or comprehensive health education.
-    {% endblocktrans %}
+    Note: Some legislators rated "Anti-Choice" or "Mixed" support access to family planning services and/or comprehensive health education.
 </p>
 
 <br>
-<h2>{% trans "Endorsement Policy" %}</h2>
+<h2>Endorsement Policy</h2>
 <p>
-    {% blocktrans %}
-        NARAL Pro-Choice Massachusetts endorses candidates with strong pro-choice positions and structured campaigns. Since we place a high priority on issue leadership and a pro-choice voting record, in certain races we have endorsed one pro-choice candidate over another.
-    {% endblocktrans %}
+    NARAL Pro-Choice Massachusetts endorses candidates with strong pro-choice positions and structured campaigns. Since we place a high priority on issue leadership and a pro-choice voting record, in certain races we have endorsed one pro-choice candidate over another.
 </p>
+{% end_front_edit %}
 
 {% endblock %}

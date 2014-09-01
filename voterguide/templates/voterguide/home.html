@@ -1,15 +1,21 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n front_tags %}
+
+{% block extrahead %}
+{% endblock %}
 
 {% block content_header %}
-    <h1>{% trans "The Pro-Choice Voters' Guide" %}</h1>
+        {% front_edit "home-header" %}
+            <h1>The Pro-Choice Voters' Guide</h1>
+        {% end_front_edit %}
+    </h1>
 {% endblock %}
 
 {% block content %}
 
 {% if featured %}
     <div class="featured-box">
-        <h4>{% trans "Featured Candidate" %}</h4>
+        <h4>Featured Candidate</h4>
 
         {% if featured.person.photo_url %}
             <img src="{{ featured.person.photo_url }}">
@@ -22,36 +28,30 @@
 {% endif %}
 
 <h2>
-    {% blocktrans %}
+    {% front_edit "home-subhead" %}
         Find your candidates and help us protect and elect pro-choice candidates in 2014!
-    {% endblocktrans %}
+    {% end_front_edit %}
 </h2>
 <br>
 
 {% include "voterguide/lookup_form.html" %}
 
 <br>
+
+{% front_edit "home-bottom" %}
 <p>
-    {% blocktrans %}
-        A woman's right to choose is under unprecedented attack. Massachusetts has not been immune to the wave of anti-choice fervor that is sweeping the country. Every election, we are on the verge of losing our pro-choice majority in the Massachusetts House of Representatives. With the 2014 U.S. Supreme Court decisions limiting women's access to safe and affordable reproductive health care, electing pro-choice champions to pass strong laws that ensure all women have equal access to the full range of reproductive health care is more important than ever.
-    {% endblocktrans %}
+    A woman's right to choose is under unprecedented attack. Massachusetts has not been immune to the wave of anti-choice fervor that is sweeping the country. Every election, we are on the verge of losing our pro-choice majority in the Massachusetts House of Representatives. With the 2014 U.S. Supreme Court decisions limiting women's access to safe and affordable reproductive health care, electing pro-choice champions to pass strong laws that ensure all women have equal access to the full range of reproductive health care is more important than ever.
+</p>
+
+<p>
+    <b>We must maintain and build our pro-choice majority so that in 2015 we can work to make Massachusetts a national leader in reproductive health access and women's rights.</b>
 </p>
 
 <br>
 <p>
-    <b>
-        {% blocktrans %}
-            We must maintain and build our pro-choice majority so that in 2015 we can work to make Massachusetts a national leader in reproductive health access and women's rights.
-        {% endblocktrans %}
-    </b>
+    The primary will be on <b>Tuesday, September 9, 2014</b> and the general election will be on <b>Tuesday, November 4, 2014</b>.
 </p>
-
-<br>
-<p>
-    {% blocktrans %}
-        The primary will be on <b>Tuesday, September 9, 2014</b> and the general election will be on <b>Tuesday, November 4, 2014</b>.
-    {% endblocktrans %}
-</p>
+{% end_front_edit %}
 <br>
 
 {% endblock %}

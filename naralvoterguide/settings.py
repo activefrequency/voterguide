@@ -131,15 +131,21 @@ INSTALLED_APPS = (
     'django_extensions',
     'debug_toolbar',
     'compressor',
+    'front',
     'voterguide',
 )
 
 # Add context processors, rather than overriding defaults
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as DEFAULT_TCP
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_TCP + (
+    'django.core.context_processors.request',
     'voterguide.context_processors.google_analytics',
 )
 
+# needed for django-front to work
+SOUTH_MIGRATION_MODULES = {
+    'front': 'front.south_migrations',
+}
 
 # Disable Django Debug Toolbar by default - override in settings_local if you want to turn it on
 INTERNAL_IPS = ( )

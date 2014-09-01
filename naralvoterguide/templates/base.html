@@ -1,4 +1,4 @@
-{% load i18n %}{% load compress %}<!DOCTYPE html>
+{% load i18n compress front_tags %}<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -96,6 +96,9 @@
 
     {% block extrajs %}
     {% endblock %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.2/ckeditor.js"></script>
+    {% front_edit_scripts editor="ckeditor" %}
 
     {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
         <script>

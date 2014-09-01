@@ -1,15 +1,20 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n front_tags %}
 
 {% block extrahead %}
 {% endblock %}
 
 {% block content_header %}
-    <h1>{% trans "Statewide Candidates" %}</h1>
+    {% front_edit "statewide-header" %}
+        <h1>Statewide Candidates</h1>
+    {% end_front_edit %}
 {% endblock %}
 
 {% block content %}
     
+    {% front_edit "statewide-intro" %}
+    {% end_front_edit %}
+
     {% regroup candidates by race.table_label as candidates_by_office %}
 
     {% for cbo in candidates_by_office %}

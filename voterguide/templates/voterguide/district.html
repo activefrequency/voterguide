@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n front_tags %}
 
 {% block extrahead %}
 {% endblock %}
 
 {% block content_header %}
-    <h1>{% trans "Your Candidates" %}</h1>
+    {% front_edit "local-header" %}
+        <h1>Your Candidates</h1>
+    {% end_front_edit %}
 {% endblock %}
 
 {% block content %}
