@@ -57,7 +57,9 @@
                 <span class="the-address">{{ address }}</span>
 
                 <p>
-                    This is where Google thinks this address is, and what we use to locate your district.
+                    {% front_edit "map-hint-help" %}
+                        This is where Google thinks this address is, and what we use to locate your district.
+                    {% end_front_edit %}
                 </p>
             </div>
         </div>
