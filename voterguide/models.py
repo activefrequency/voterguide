@@ -101,6 +101,9 @@ class District(models.Model):
         if not self.code:
             self.code = name.strip().replace(',', '').replace(' ', '-').upper()
         self.code = self.code.upper()
+        # if a code is a digit, and doesn't start with a zero, zero-pad it
+        if self.code.isdigit() and self.code[0] != '0':
+            self.code = self.code.zfill(3)
 
 
 @python_2_unicode_compatible
