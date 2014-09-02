@@ -17,37 +17,67 @@
     {% if address and not form_error %}
         {% regroup candidates by race.table_label as candidates_by_office %}
 
-        {% for cbo in candidates_by_office %}
+        <div class="col-md-8">
+            {% for cbo in candidates_by_office %}
 
-            <h3 class="office-label">{{ cbo.grouper }}</h3>
+                <h3 class="office-label">{{ cbo.grouper }}</h3>
 
-            <table class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
-                <thead>
-                    <tr>
-                        <th class="col-name">{% trans "Name" %}</th>
-                        <th class="col-party">{% trans "Party" %}</th>
-                        <th class="col-rating">{% trans "Pro-Choice Rating" %}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for candidate in cbo.list %}
-                        <tr class="{% if candidate.rating == candidate.RATING_ENDORSED %}success{% endif %}">
-                            <td>{{ candidate.person.full_name }} {% if candidate.is_incumbent %}<b>({% trans "Incumbent" %})</b>{% endif %}</td>
-                            <td>{{ candidate.get_party_display }}</td>
-                            <td>{{ candidate.get_rating_display }}</td>
-                            {% if candidate.rating == candidate.RATING_ENDORSED %}
-                                <td class="nobg icon-container">
-                                    <i class="fa fa-check-circle"></i>
-                                </td>
-                                <td class="nobg hidden-xs">
-                                    <a href="mailto:choice@prochoicemass.org?subject=I want to volunteer for {{ candidate.person.full_name }}!">{% trans "Volunteer!" %}</a>
-                                </td>
-                            {% endif %}
+                <table class="table table-condensed table-striped table-bordered table-hover table-candidate-list">
+                    <thead>
+                        <tr>
+                            <th class="col-name">{% trans "Name" %}</th>
+                            <th class="col-party">{% trans "Party" %}</th>
+                            <th class="col-rating">{% trans "Pro-Choice Rating" %}</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% endfor %}
+                    </thead>
+                    <tbody>
+                        {% for candidate in cbo.list %}
+                            <tr class="{% if candidate.rating == candidate.RATING_ENDORSED %}success{% endif %}">
+                                <td>{{ candidate.person.full_name }} {% if candidate.is_incumbent %}<b>({% trans "Incumbent" %})</b>{% endif %}</td>
+                                <td>{{ candidate.get_party_display }}</td>
+                                <td>{{ candidate.get_rating_display }}</td>
+                                {% if candidate.rating == candidate.RATING_ENDORSED %}
+                                    <td class="nobg icon-container">
+                                        <i class="fa fa-check-circle"></i>
+                                    </td>
+                                    <td class="nobg hidden-xs">
+                                        <a href="mailto:choice@prochoicemass.org?subject=I want to volunteer for {{ candidate.person.full_name }}!">{% trans "Volunteer!" %}</a>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4 hidden-sm">
+            <div id="map-canvas"></div>
+            <div class="address-echo">
+                <span class="the-address">{{ address }}</span>
+
+                <p>
+                    This is where Google thinks this address is, and what we use to locate your district.
+                </p>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var pos = new google.maps.LatLng({{ coords.lat }}, {{ coords.lng }});
+                var mapOptions = {
+                    zoom: 17,
+                    center: pos
+                };
+                var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map
+              });
+
+            });
+        </script>
+
     {% else %}
         <br>
         <h4>{% trans "Find Your Local Candidates" %}</h4>

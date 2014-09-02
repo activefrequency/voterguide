@@ -85,6 +85,7 @@ def district_lookup(request):
     return render(request, "voterguide/district.html", {
         'form_error': None,
         'address': address,
+        'coords': {'lat': lat, 'lng': lng},
         'districts': districts,
         'candidates': candidates,
         'statewide_endorsees': statewide_endorsees,
