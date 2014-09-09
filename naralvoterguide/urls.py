@@ -7,10 +7,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'', include('voterguide.urls')),
     url(r'^tools/', include(admin.site.urls)),
     url(r'^front-edit/', include('front.urls')),
     url(r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'favicon.ico'), name='favicon'),
+    url(r'', include('voterguide.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

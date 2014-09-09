@@ -16,6 +16,15 @@ import StringIO
 import unicodecsv
 
 
+def placeholder(request):
+    """
+    Placeholder page while primary results are switched to general.
+    """
+    return render(request, "voterguide/placeholder.html", {
+        
+    })
+
+
 def home(request):
     current_election = Election.objects.get(is_active=True)
     featured = Candidate.objects.filter(race__election=current_election, featured=True).order_by('?').select_related('person').first()

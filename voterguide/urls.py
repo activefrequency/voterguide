@@ -3,6 +3,8 @@ from django.conf.urls import patterns, include, url
 # import .views
 
 urlpatterns = patterns('',
+    url(r'^.*$', 'voterguide.views.placeholder', name='placeholder'),
+
     url(r'^$', 'voterguide.views.home', name='home'),
     url(r'^local/$', 'voterguide.views.district_lookup', name='district_lookup'),
     url(r'^statewide/$', 'voterguide.views.statewide', name='statewide'),

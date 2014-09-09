@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n front_tags %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block content_header %}
+        {% front_edit "placeholder-header" %}
+            <h1>The Pro-Choice Voters' Guide</h1>
+        {% end_front_edit %}
+{% endblock %}
+
+{% block navbar %}
+    {# no nav #}
+{% endblock %}
+
+{% block content %}
+
+    {% front_edit "placeholder-content" %}
+        <p>
+            Thank you for visiting NARAL Pro-Choice Massachusetts Voters' Guide.
+        </p>
+
+        <p>
+            We are currently updating our election date following the Primary Election and will be back online soon.
+        </p>
+
+        <p>
+            <a href="https://www.prochoicemass.org/action-center/email-signup.shtml">Stay in the know: Sign up for pro-choice voting alerts from NARAL Pro-Choice Massachusetts!</a>
+        </p>
+
+    {% end_front_edit %}
+
+{% endblock %}
