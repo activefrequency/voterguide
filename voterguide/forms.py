@@ -8,6 +8,7 @@ from .models import Election, Office, District, Candidate
 
 class CandidateImportForm(forms.Form):
     election = forms.ModelChoiceField(label=_("Election"), queryset=Election.objects.all())
+    winner_of_election = forms.ModelChoiceField(label=_("Mark as winner of"), queryset=Election.objects.all(), required=False)
     csv = forms.CharField(label=_("CSV"), widget=forms.Textarea(attrs={'rows': '20', 'class': 'form-control'}))
 
 

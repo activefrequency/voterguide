@@ -157,6 +157,7 @@ def import_candidates(request):
         form = CandidateImportForm(request.POST)
         if form.is_valid():
             election = form.cleaned_data.get('election')
+            winner_of_election = form.cleaned_data.get('winner_of_election')
             data = form.cleaned_data.get('csv')
             f = StringIO.StringIO(data)
             reader = unicodecsv.DictReader(f, encoding='utf-8', fieldnames=['Office', 'District', 'Priority', 'Status', 'FirstName', 'LastName', 'Party', 'Rating', 'Incumbent', 'Endorsed'])
@@ -188,11 +189,19 @@ def import_candidates(request):
 
                 # Find or create race
                 race, created = Race.objects.get_or_create(election=election, office=office, state=election.state, district=district)
+
+                if winner_of_election:
+                    try:
+                        winner_of_race = Race.objects.get(election=winner_of_election, office=office, state=winner_of_election.state, district=district)
+                    except Race.DoesNotExist:
+                        winner_of_race = None
+                else:
+                    winner_of_race = None
                 
                 # Find or create Person/Candidate
                 # TODO: what about people with same first/last name? Need to check for district, too...
                 person, created = Person.objects.get_or_create(first_name=row['FirstName'].strip(), last_name=row['LastName'].strip())
-                rating = rating_dict[row['Rating']]
+                rating = rating_dict.get(row['Rating'], Candidate.RATING_UNKNOWN)
                 if row['Endorsed'].strip().upper().find("Y") != -1:
                     rating = Candidate.RATING_ENDORSED
                 values = {
@@ -208,6 +217,10 @@ def import_candidates(request):
                     for k, v in values.iteritems():
                         setattr(candidate, k, v)
                     candidate.save()
+                
+                # if the person was in a prior race, mark them as the winner
+                if winner_of_race:
+                    Candidate.objects.filter(person=person, race=winner_of_race).update(winner=True)
 
                 # Keep the count
                 num_imported += 1
