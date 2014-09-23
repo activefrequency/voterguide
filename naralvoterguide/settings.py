@@ -182,6 +182,9 @@ VOTERGUIDE_SETTINGS = {
 
 GOOGLE_ANALYTICS_PROPERTY_ID = os.environ.get('GOOGLE_ANALYTICS_PROPERTY_ID', '')
 
+# turn on "Placeholder mode" - hijacks to placeholder page
+SHOW_PLACEHOLDER = os.environ.get('SHOW_PLACEHOLDER', False)
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
