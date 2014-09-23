@@ -83,7 +83,11 @@
 
         <div class="footer" role="footer">
             <div class="pull-left">
-                &copy; {% now "Y" %} <a href="http://www.prochoicemass.org">NARAL Pro-Choice Massachusetts</a>
+                {% front_edit "footer-link" %}
+                    &copy; 2014 <a href="http://www.prochoicemass.org">NARAL Pro-Choice Massachusetts</a>
+                {% end_front_edit %}
+
+                Built by <a href="http://www.activefrequency.com">Active Frequency</a>
             </div>
 
             <div class="pull-right">
