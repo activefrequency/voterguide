@@ -76,9 +76,11 @@
                         <td class="nobg icon-container">
                             <i class="fa fa-check-circle"></i>
                         </td>
-                        <td class="nobg hidden-xs">
-                            <a href="mailto:choice@prochoicemass.org?subject=I want to volunteer for {{ candidate.person.full_name }}!">{% trans "Volunteer!" %}</a>
-                        </td>
+                        {% if BRANDING.VOLUNTEER_EMAIL %}
+                            <td class="nobg hidden-xs">
+                                <a href="mailto:{{ BRANDING.VOLUNTEER_EMAIL }}?subject=I want to volunteer for {{ candidate.person.full_name }}!">{% trans "Volunteer!" %}</a>
+                            </td>
+                        {% endif %}
                     {% endif %}
                 </tr>
             {% endfor %}

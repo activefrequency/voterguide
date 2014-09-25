@@ -140,6 +140,7 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as DEFAULT_T
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_TCP + (
     'django.core.context_processors.request',
     'voterguide.context_processors.google_analytics',
+    'voterguide.context_processors.branding',
 )
 
 # needed for django-front to work
@@ -178,6 +179,16 @@ SUNLIGHT_API_KEY = os.environ.get('SUNLIGHT_API_KEY', '')
 VOTERGUIDE_SETTINGS = {
     'DEFAULT_STATE': os.environ.get('VOTERGUIDE_DEFAULT_STATE', 'MA'),
     'DEFAULT_YEAR': os.environ.get('VOTERGUIDE_DEFAULT_YEAR', '2014'),
+    'BRANDING': {
+        'ORG_NAME': os.environ.get('VOTERGUIDE_BRANDING_ORG_NAME', 'NARAL Pro-Choice Massachusetts'),
+        'ORG_URL': os.environ.get('VOTERGUIDE_BRANDING_ORG_URL', 'http://www.prochoicemass.org'),
+        'FACEBOOK_URL': os.environ.get('VOTERGUIDE_BRANDING_FACEBOOK_URL', 'https://www.facebook.com/prochoicemass'),
+        'TWITTER_URL': os.environ.get('VOTERGUIDE_BRANDING_TWITTER_URL', 'https://www.twitter.com/prochoicemass'),
+        'CONTACT_URL': os.environ.get('VOTERGUIDE_BRANDING_CONTACT_URL', 'http://www.prochoicemass.org/about-us/contact.shtml'),
+        'REGISTER_VOTE_URL': os.environ.get('VOTERGUIDE_BRANDING_REGISTER_VOTE_URL', 'http://www.sec.state.ma.us/ele/eleifv/howreg.htm'),
+        'DONATE_URL': os.environ.get('VOTERGUIDE_BRANDING_DONATE_URL', 'http://www.prochoicemass.org/donate/'),
+        'VOLUNTEER_EMAIL': os.environ.get('VOTERGUIDE_BRANDING_VOLUNTEER_EMAIL', 'choice@prochoicemass.org'),
+    }
 }
 
 GOOGLE_ANALYTICS_PROPERTY_ID = os.environ.get('GOOGLE_ANALYTICS_PROPERTY_ID', '')
