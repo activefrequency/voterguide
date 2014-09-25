@@ -188,6 +188,7 @@ VOTERGUIDE_SETTINGS = {
         'REGISTER_VOTE_URL': os.environ.get('VOTERGUIDE_BRANDING_REGISTER_VOTE_URL', 'http://www.sec.state.ma.us/ele/eleifv/howreg.htm'),
         'DONATE_URL': os.environ.get('VOTERGUIDE_BRANDING_DONATE_URL', 'http://www.prochoicemass.org/donate/'),
         'VOLUNTEER_EMAIL': os.environ.get('VOTERGUIDE_BRANDING_VOLUNTEER_EMAIL', 'choice@prochoicemass.org'),
+        'LOGO_IMG': os.environ.get('VOTERGUIDE_BRANDING_LOGO_IMG', 'logo-ma.png'),
     }
 }
 
