@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['voterguide.herokuapp.com', '.prochoicemassvotes.org']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com').split(':')
 
 # For Heroku
 import dj_database_url
@@ -86,7 +86,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'v*xir3k@d=cy7)2-05&s(vv%ae0kf05ml1spktrd(be#28ce+1'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -170,8 +170,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('MANDRILL_USERNAME')
 EMAIL_HOST_PASSWORD = os.environ.get('MANDRILL_APIKEY')
 EMAIL_USE_TLS = True
-SERVER_EMAIL = 'kevin+naralvoterguide@activefrequency.com'
-DEFAULT_FROM_EMAIL = 'kevin+naralvoterguide@activefrequency.com'
+SERVER_EMAIL = os.environ.get('SERVER_EMAIL')
+DEFAULT_FROM_EMAIL = os.environ.get('SERVER_EMAIL')
 
 SUNLIGHT_API_KEY = os.environ.get('SUNLIGHT_API_KEY', '')
 
