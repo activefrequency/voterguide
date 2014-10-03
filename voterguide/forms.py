@@ -25,3 +25,10 @@ class CandidateFilterForm(forms.Form):
     rating = forms.ChoiceField(label=_("Pro-Choice Rating"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.RATING_CHOICES) )
     # only races with endorsements
     with_endorsements = forms.BooleanField(label=_("Only show races with endorsements"), required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(CandidateFilterForm, self).__init__(*args, **kwargs)
+        active_ratings = [r[0] for r in Candidate.objects.all().order_by('-rating').distinct('rating').values_list('rating')]
+        choices_dict = dict(Candidate.RATING_CHOICES)
+        self.fields['rating'].choices = [('', _(" - ANY - ")),] + [(r, choices_dict[r]) for r in active_ratings]
+
