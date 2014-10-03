@@ -41,14 +41,15 @@
                     <input type="submit" class="btn btn-primary" value="{% trans 'Filter' %}">
                 </td>
             </tr>
-            <tr>
-                <td colspan="3">
-                    <br>
-                    <!-- <input type="checkbox"> <label></label> -->
-                    {{ candidate_filter.with_endorsements }}
-                    {{ candidate_filter.with_endorsements.label_tag }}
-                </td>
-            </tr>
+            {% if show_endorsements %}
+                <tr>
+                    <td colspan="3">
+                        <br>
+                        {{ candidate_filter.with_endorsements }}
+                        {{ candidate_filter.with_endorsements.label_tag }}
+                    </td>
+                </tr>
+            {% endif %}
         </table>
         
     </form>

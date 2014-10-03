@@ -1,20 +1,22 @@
 {% load i18n front_tags %}
 
-<h3 class="office-label">
-    {% front_edit "statewide-endorsement-header" %}
-        Your Statewide NARAL-Endorsed Candidates
-    {% end_front_edit %}
-</h3>
+{% if show_endorsements %}
+    <h3 class="office-label">
+        {% front_edit "statewide-endorsement-header" %}
+            Your Statewide NARAL-Endorsed Candidates
+        {% end_front_edit %}
+    </h3>
 
-<div class="endorsement-box">
-    {% front_edit "statewide-endorsement-content" %}
-        <img src="{{ STATIC_URL }}img/coakley.jpg" width="100" class="pull-left">
+    <div class="endorsement-box">
+        {% front_edit "statewide-endorsement-content" %}
+            <img src="{{ STATIC_URL }}img/coakley.jpg" width="100" class="pull-left">
 
-        <div class="name">Martha Coakley (D) for Governor</div>
+            <div class="name">Martha Coakley (D) for Governor</div>
 
-        <div class="blurb">
-            With a long career of fighting for women's access to basic health care, Attorney General Martha Coakley is <i>the</i> pro-choice leader in the race to elect Massachusetts next governor.
-        </div>
-    {% end_front_edit %}
-</div>
-<div class="clearfix"></div>
+            <div class="blurb">
+                With a long career of fighting for women's access to basic health care, Attorney General Martha Coakley is <i>the</i> pro-choice leader in the race to elect Massachusetts next governor.
+            </div>
+        {% end_front_edit %}
+    </div>
+    <div class="clearfix"></div>
+{% endif %}

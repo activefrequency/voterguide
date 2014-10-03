@@ -60,14 +60,14 @@ def district_lookup(request):
     # TODO: throw nicer error here if current elections <> 1
     current_election = Election.objects.get(is_active=True)
 
-    statewide_endorsees = Candidate.objects.filter(race__election=current_election, race__district=None, rating=Candidate.RATING_ENDORSED).select_related('person', 'race', 'race__office').order_by(
-        'race__state', 'race__election', 'race__office', '-is_endorsed', '-is_pro', '-is_incumbent', 'person__last_name', 'person__first_name')
+    # only show 'statewide endorsements' header if there are ANY statewide endorsed candidates
+    show_endorsements = Race.objects.filter(district=None, has_endorsement=True).exists()
 
     if not (lat and lng):
         return render(request, "voterguide/district.html", {
+            'show_endorsements': show_endorsements,
             'form_error': None,
             'address': '',
-            'statewide_endorsees': statewide_endorsees,
             'active_page': 'local',
         })
 
@@ -78,9 +78,9 @@ def district_lookup(request):
     # TODO: nicer error
     if districts.count() == 0:
         return render(request, "voterguide/district.html", {
+            'show_endorsements': show_endorsements,
             'form_error': 'lookup_error',
             'address': address,
-            'statewide_endorsees': statewide_endorsees,
             'active_page': 'local',
         })
 
@@ -97,7 +97,7 @@ def district_lookup(request):
         'coords': {'lat': lat, 'lng': lng},
         'districts': districts,
         'candidates': candidates,
-        'statewide_endorsees': statewide_endorsees,
+        'show_endorsements': show_endorsements,
         'active_page': 'local',
     })
 
@@ -138,9 +138,13 @@ def candidate_list(request):
     if with_endorsements:
         candidates = candidates.filter(race__has_endorsement=True)
 
+    # only show 'endorsements' checkbox if there are ANY endorsed candidates
+    show_endorsements = Race.objects.filter(has_endorsement=True).exists()
+
     return render(request, "voterguide/candidate_list.html", {
         'candidates': candidates,
         'candidate_filter': candidate_filter,
+        'show_endorsements': show_endorsements,
         'active_page': 'candidate_list',
     })
 
