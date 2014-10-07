@@ -226,7 +226,7 @@ class Candidate(models.Model):
     race = models.ForeignKey(Race)
 
     is_incumbent = models.BooleanField(verbose_name=_("Incumbent"), default=False)
-    party = models.CharField(verbose_name=_("Party"), max_length=2, choices=PARTY_CHOICES)
+    party = models.CharField(verbose_name=_("Party"), max_length=2, choices=PARTY_CHOICES, blank=True, null=True)
     rating = models.IntegerField(verbose_name=_("Rating"), choices=RATING_CHOICES, default=RATING_UNKNOWN)
     featured = models.BooleanField(verbose_name=_("Featured"), default=False)
     winner = models.BooleanField(verbose_name=_("Winner"), default=False)
