@@ -174,23 +174,29 @@ def import_candidates(request):
             for row in reader:
                 # Look up Office
                 # TODO: this is a horrible hardcoded hack
-                if row['Office'] in ['State Representative', 'State House']:
-                    office_id = 7
+                if row['Office'].strip() in ['State Representative', 'State House']:
+                    office = Office.objects.get(chamber=District.CHAMBER_LOWER)
                     chamber = District.CHAMBER_LOWER
-                elif row['Office'] in ['State Senate', 'State Senator']:
-                    office_id = 2
+                elif row['Office'].strip() in ['State Senate', 'State Senator']:
+                    office = Office.objects.get(chamber=District.CHAMBER_UPPER)
                     chamber = District.CHAMBER_UPPER
                 else:
-                    messages.error(request, _("Couldn't find office: %(office)s" % {'office': row['Office']}))
-                    continue
-                office = Office.objects.get(id=office_id)
+                    try:
+                        office = Office.objects.get(name=row['Office'].strip())
+                    except:
+                        messages.error(request, _("Couldn't find office: %(office)s" % {'office': row['Office']}))
+                        continue
 
                 # Look up district
-                try:
-                    district = District.objects.get(name=normalize_ordinals(row['District']), chamber=chamber, state=state)
-                except District.DoesNotExist:
-                    messages.error(request, _("Couldn't find district: %(district)s" % {'district': row['District']}))
-                    continue
+                district_name = row['District'].strip()
+                if district_name == 'Statewide' or district_name == '':
+                    district = None
+                else:
+                    try:
+                        district = District.objects.get(name=normalize_ordinals(district_name), chamber=chamber, state=state)
+                    except District.DoesNotExist:
+                        messages.error(request, _("Couldn't find district: %(district)s" % {'district': row['District']}))
+                        continue
 
                 # Find or create race
                 race, created = Race.objects.get_or_create(election=election, office=office, state=state, district=district)
