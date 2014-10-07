@@ -189,6 +189,7 @@ VOTERGUIDE_SETTINGS = {
         'DONATE_URL': os.environ.get('VOTERGUIDE_BRANDING_DONATE_URL', 'http://www.prochoicemass.org/donate/'),
         'VOLUNTEER_EMAIL': os.environ.get('VOTERGUIDE_BRANDING_VOLUNTEER_EMAIL', 'choice@prochoicemass.org'),
         'LOGO_IMG': os.environ.get('VOTERGUIDE_BRANDING_LOGO_IMG', 'logo-ma.png'),
+        'SHOW_STATEWIDE_ENDORSEMENTS': bool(os.environ.get('VOTERGUIDE_SHOW_STATEWIDE_ENDORSEMENTS', '1')),
     }
 }
 
