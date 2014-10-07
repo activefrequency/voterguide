@@ -9,6 +9,15 @@ def normalize_ordinals(name):
     """
     Change 'Eighth Plymouth' to '8th Plymouth', and '8 Plymouth' to '8th Plymouth'
     """
+    # work around "SD 1"/"HD 1"
+    if name.startswith("SD "):
+        name = name.replace("SD ", "")
+    if name.startswith("HD "):
+        name = name.replace("HD ", "")
+
+    if name.isnumeric():
+        return name
+
     for key, val in ORDINALS.items():
         # split words, to make sure that 'fifth' doesn't match 'thirty-fifth'
         if key in name.lower().split(' '):

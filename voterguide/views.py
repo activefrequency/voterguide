@@ -161,6 +161,7 @@ def import_candidates(request):
         form = CandidateImportForm(request.POST)
         if form.is_valid():
             election = form.cleaned_data.get('election')
+            state = election.state
             winner_of_election = form.cleaned_data.get('winner_of_election')
             data = form.cleaned_data.get('csv')
             f = StringIO.StringIO(data)
@@ -173,10 +174,10 @@ def import_candidates(request):
             for row in reader:
                 # Look up Office
                 # TODO: this is a horrible hardcoded hack
-                if row['Office'] == 'State Representative':
+                if row['Office'] in ['State Representative', 'State House']:
                     office_id = 7
                     chamber = District.CHAMBER_LOWER
-                elif row['Office'] == 'State Senate':
+                elif row['Office'] in ['State Senate', 'State Senator']:
                     office_id = 2
                     chamber = District.CHAMBER_UPPER
                 else:
@@ -186,17 +187,17 @@ def import_candidates(request):
 
                 # Look up district
                 try:
-                    district = District.objects.get(name=normalize_ordinals(row['District']), chamber=chamber)
+                    district = District.objects.get(name=normalize_ordinals(row['District']), chamber=chamber, state=state)
                 except District.DoesNotExist:
                     messages.error(request, _("Couldn't find district: %(district)s" % {'district': row['District']}))
                     continue
 
                 # Find or create race
-                race, created = Race.objects.get_or_create(election=election, office=office, state=election.state, district=district)
+                race, created = Race.objects.get_or_create(election=election, office=office, state=state, district=district)
 
                 if winner_of_election:
                     try:
-                        winner_of_race = Race.objects.get(election=winner_of_election, office=office, state=winner_of_election.state, district=district)
+                        winner_of_race = Race.objects.get(election=winner_of_election, office=office, state=state, district=district)
                     except Race.DoesNotExist:
                         winner_of_race = None
                 else:
