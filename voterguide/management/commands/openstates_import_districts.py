@@ -29,6 +29,9 @@ class Command(BaseCommand):
             districts = sunlight.openstates.districts(state.lower())
             for d in districts:
                 self.stdout.write('Importing "{}"'.format(d['name']))
+                # workaround for NH and its floterial districts
+                if d['boundary_id'] == 'unknown':
+                    continue
                 district, created = District.objects.get_or_create(openstates_boundary_id=d['boundary_id'], defaults={
                     'name': d['name'],
                     'state': state.upper(),

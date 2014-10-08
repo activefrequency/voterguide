@@ -155,7 +155,7 @@ def import_candidates(request):
     Admin tool to import candidates.
     """
     # ratings inverse lookup
-    rating_dict = dict([(el[1], el[0]) for el in Candidate.RATING_CHOICES])
+    rating_dict = dict([(el[1].lower(), el[0]) for el in Candidate.RATING_CHOICES])
 
     if request.method == "POST":
         form = CandidateImportForm(request.POST)
@@ -192,11 +192,16 @@ def import_candidates(request):
                 if district_name == 'Statewide' or district_name == '':
                     district = None
                 else:
+                    # first, try it as-is; then try replacing ordinals
+                    district_name = district_name.replace('  ', ' ').replace('  ', ' ').strip()
                     try:
-                        district = District.objects.get(name=normalize_ordinals(district_name), chamber=chamber, state=state)
+                        district = District.objects.get(name=district_name, chamber=chamber, state=state)
                     except District.DoesNotExist:
-                        messages.error(request, _("Couldn't find district: %(district)s" % {'district': row['District']}))
-                        continue
+                        try:
+                            district = District.objects.get(name=normalize_ordinals(district_name), chamber=chamber, state=state)
+                        except District.DoesNotExist:
+                            messages.error(request, _("Couldn't find district: %(district)s" % {'district': row['District']}))
+                            continue
 
                 # Find or create race
                 race, created = Race.objects.get_or_create(election=election, office=office, state=state, district=district)
@@ -209,15 +214,34 @@ def import_candidates(request):
                 else:
                     winner_of_race = None
                 
+                # party - sort out common (non-)abbreviations
+                party = row['Party'].strip().upper()
+                if party == 'DEMOCRATIC':
+                    party = 'D'
+                elif party == 'DEMOCRAT':
+                    party = 'D'
+                elif party == 'DEM':
+                    party = 'D'
+                elif party == 'REPUBLICAN':
+                    party = 'R'
+                elif party == 'INDEPENDENT':
+                    party = 'I'
+                elif party == 'IND':
+                    party = 'I'
+                elif party == 'LIBERTARIAN':
+                    party = 'L'
+                elif party == 'UNITED IND.':
+                    party = 'U'
+
                 # Find or create Person/Candidate
                 # TODO: what about people with same first/last name? Need to check for district, too...
                 person, created = Person.objects.get_or_create(first_name=row['FirstName'].strip(), last_name=row['LastName'].strip())
-                rating = rating_dict.get(row['Rating'], Candidate.RATING_UNKNOWN)
+                rating = rating_dict.get(row['Rating'].lower(), Candidate.RATING_UNKNOWN)
                 if row['Endorsed'].strip().upper().find("Y") != -1:
                     rating = Candidate.RATING_ENDORSED
                 values = {
                     'is_incumbent': row['Incumbent'].strip().upper().find("Y") != -1,
-                    'party': row['Party'].strip(),
+                    'party': party,
                     'rating': rating,
                     'featured': False,
                     'winner': False,
