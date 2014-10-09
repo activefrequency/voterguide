@@ -242,7 +242,8 @@ def import_candidates(request):
                 # TODO: what about people with same first/last name? Need to check for district, too...
                 person, created = Person.objects.get_or_create(first_name=row['FirstName'].strip(), last_name=row['LastName'].strip())
                 rating = rating_dict.get(row['Rating'].lower(), Candidate.RATING_UNKNOWN)
-                if row['Endorsed'].strip().upper().find("Y") != -1:
+                endorsed_rating = row.get('Endorsed', '') or ''
+                if endorsed_rating.strip().upper().find("Y") != -1:
                     rating = Candidate.RATING_ENDORSED
                 values = {
                     'is_incumbent': row['Incumbent'].strip().upper().find("Y") != -1,
