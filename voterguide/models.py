@@ -201,6 +201,7 @@ class Person(models.Model):
 @python_2_unicode_compatible
 class Candidate(models.Model):
     PARTY_D = _("D")
+    PARTY_G = _("G")
     PARTY_R = _("R")
     PARTY_I = _("I")
     PARTY_L = _("L")
@@ -210,6 +211,7 @@ class Candidate(models.Model):
         (PARTY_R, _("Republican")),
         (PARTY_I, _("Independent")),
         (PARTY_L, _("Libertarian")),
+        (PARTY_G, _("Green")),
         (PARTY_U, _("United Ind.")),
     )
 
