@@ -56,6 +56,7 @@ def about(request):
 def district_lookup(request):
     lat = request.GET.get('lat', None)
     lng = request.GET.get('lng', None)
+    county = request.GET.get('county', None)
     address = request.GET.get('address', '')
     
     # TODO: throw nicer error here if current elections <> 1
@@ -89,7 +90,11 @@ def district_lookup(request):
     if districts.count() > 2:
         raise Http404("Found more than one district.")
 
-    candidates = Candidate.objects.filter(race__election=current_election).filter(Q(race__district__in=districts) | Q(race__district__floterial_to__in=districts)).select_related('person', 'race', 'race__office', 'race__district').order_by(
+    conditions = Q(race__district__in=districts) | Q(race__district__floterial_to__in=districts)
+    if county:
+        conditions = Q(conditions | Q(race__district__county=county))
+
+    candidates = Candidate.objects.filter(race__election=current_election).filter(conditions).select_related('person', 'race', 'race__office', 'race__district').order_by(
         'race__state', 'race__election', 'race__office', 'race__district', '-is_incumbent', 'person__last_name', 'person__first_name')
 
     return render(request, "voterguide/district.html", {

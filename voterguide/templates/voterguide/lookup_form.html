@@ -14,6 +14,7 @@
     <input type="hidden" name="lat" id="address_lat">
     <input type="hidden" name="lng" id="address_lng">
     <input type="hidden" name="address" id="address_str">
+    <input type="hidden" name="county" id="address_county">
 </form>
 
 <script type="text/javascript">
@@ -28,6 +29,15 @@
               if (status == google.maps.GeocoderStatus.OK) {
                 window.log("Google geocode successful");
                 var loc = results[0].geometry.location;
+
+                // get county if we have one
+                $.each(results[0].address_components, function(idx, component) {
+                    if (component.short_name.indexOf("County") != -1) {
+                        $('#address_county').val(component.short_name.replace("County", "").trim());
+                        console.log( $('#address_county').val() );
+                    }
+                });
+
                 $('#address_lat').val(loc.lat());
                 $('#address_lng').val(loc.lng());
                 $('#address_str').val(address);
@@ -39,4 +49,8 @@
             });
         });
     });
+
+if (!String.prototype.trim) {
+    String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
+}
 </script>

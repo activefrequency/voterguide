@@ -48,9 +48,11 @@ class District(models.Model):
     """
     CHAMBER_UPPER = 1
     CHAMBER_LOWER = 2
+    CHAMBER_COUNTY = 3
     CHAMBER_CHOICES = (
         (CHAMBER_UPPER, _("State Senate")),
         (CHAMBER_LOWER, _("State House")),
+        (CHAMBER_COUNTY, _("County")),
     )
 
     name = models.CharField(verbose_name=_("Name"), max_length=200)
