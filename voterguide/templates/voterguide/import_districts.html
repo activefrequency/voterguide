@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+
+{% endblock %}
+
+{% block content_header %}
+    <h1>{% trans "Import Districts" %}</h1>
+{% endblock %}
+
+{% block content %}
+    <p>
+        {% blocktrans %}
+            Use this tool to import districts from a CSV. The CSV must have the following fields, in this order:
+        {% endblocktrans %}
+        <b>
+            {% blocktrans %}
+                District Name, Floterial To, Chamber
+            {% endblocktrans %}
+        </b>
+    </p>
+    <ul>
+        {% blocktrans %}
+            <li> It should NOT have a header row.</li>
+        {% endblocktrans %}
+    </ul>
+
+    <form action="{% url 'import_districts' %}" method="POST" role="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="{% trans 'Import' %}">
+    </form>
+
+{% endblock %}
+
+{% block extrajs %}
+
+{% endblock %}

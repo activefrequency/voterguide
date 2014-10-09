@@ -7,9 +7,10 @@ from django.contrib.gis.geos import Point, GEOSGeometry
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
+from django.conf import settings
 
 from .models import District, Office, Race, Election, Person, Candidate
-from .forms import CandidateImportForm, CandidateFilterForm
+from .forms import CandidateImportForm, DistrictImportForm, CandidateFilterForm
 from .utils import normalize_ordinals
 
 import StringIO
@@ -88,7 +89,7 @@ def district_lookup(request):
     if districts.count() > 2:
         raise Http404("Found more than one district.")
 
-    candidates = Candidate.objects.filter(race__election=current_election, race__district__in=districts).select_related('person', 'race', 'race__office', 'race__district').order_by(
+    candidates = Candidate.objects.filter(race__election=current_election).filter(Q(race__district__in=districts) | Q(race__district__floterial_to__in=districts)).select_related('person', 'race', 'race__office', 'race__district').order_by(
         'race__state', 'race__election', 'race__office', 'race__district', '-is_incumbent', 'person__last_name', 'person__first_name')
 
     return render(request, "voterguide/district.html", {
@@ -173,7 +174,6 @@ def import_candidates(request):
             num_imported = 0
             for row in reader:
                 # Look up Office
-                # TODO: this is a horrible hardcoded hack
                 if row['Office'].strip() in ['State Representative', 'State House']:
                     office = Office.objects.get(chamber=District.CHAMBER_LOWER)
                     chamber = District.CHAMBER_LOWER
@@ -269,12 +269,60 @@ def import_candidates(request):
     })
 
 
+@login_required
+def import_districts(request):
+    """
+    Admin tool to import (floterial) districts.
+    """
+    if request.method == "POST":
+        form = DistrictImportForm(request.POST)
+        if form.is_valid():
+            state = settings.VOTERGUIDE_SETTINGS.get('DEFAULT_STATE')
+            data = form.cleaned_data.get('csv')
+            f = StringIO.StringIO(data)
+            reader = unicodecsv.DictReader(f, encoding='utf-8', fieldnames=['District', 'FloterialTo', 'Office'])
 
+            num_imported = 0
+            for row in reader:
+                # Look up Office
+                if row['Office'].strip() in ['State Representative', 'State House']:
+                    office = Office.objects.get(chamber=District.CHAMBER_LOWER)
+                    chamber = District.CHAMBER_LOWER
+                elif row['Office'].strip() in ['State Senate', 'State Senator']:
+                    office = Office.objects.get(chamber=District.CHAMBER_UPPER)
+                    chamber = District.CHAMBER_UPPER
+                else:
+                    try:
+                        office = Office.objects.get(name=row['Office'].strip())
+                    except:
+                        messages.error(request, _("Couldn't find office: %(office)s" % {'office': row['Office']}))
+                        continue
 
+                # Look up district
+                target_district_name = row['FloterialTo'].strip()
+                try:
+                    target_district = District.objects.get(name=target_district_name, chamber=chamber, state=state)
+                except District.DoesNotExist:
+                    messages.error(request, _("Couldn't find district: %(district)s" % {'district': row['FloterialTo']}))
+                    continue
 
+                district_name = row['District'].strip()
+                values = {
+                    'is_floterial': True,
+                    'state': state.upper(),
+                    'chamber': chamber,
+                    'num_seats': 1,
+                }
+                district, created = District.objects.get_or_create(name=district_name, defaults=values)
+                district.floterial_to.add(target_district)
+                district.save()
+                num_imported += 1
 
-
-
-
-
+            # Assuming we got any, show a success message
+            messages.success(request, _("%(num_imported)s rows imported!" % {'num_imported': num_imported}))
+    else:
+        form = DistrictImportForm()
+    return render(request, "voterguide/import_districts.html", {
+        'form': form,
+    })
 

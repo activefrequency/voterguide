@@ -3,6 +3,7 @@ from django.conf import settings
 
 urlpatterns = patterns('',
     url(r'^import/$', 'voterguide.views.import_candidates', name='import_candidates'),
+    url(r'^import-districts/$', 'voterguide.views.import_districts', name='import_districts'),
 )
 
 # if we've turned on placeholder mode, insert this before everything else
