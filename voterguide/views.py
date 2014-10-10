@@ -230,19 +230,41 @@ def import_candidates(request):
                     party = 'D'
                 elif party == 'REPUBLICAN':
                     party = 'R'
+                elif party == 'REP':
+                    party = 'R'
                 elif party == 'INDEPENDENT':
                     party = 'I'
                 elif party == 'IND':
                     party = 'I'
                 elif party == 'LIBERTARIAN':
                     party = 'L'
+                elif party == 'LIB':
+                    party = 'L'
+                elif party == 'GREEN':
+                    party = 'G'
                 elif party == 'UNITED IND.':
                     party = 'U'
 
                 # Find or create Person/Candidate
                 # TODO: what about people with same first/last name? Need to check for district, too...
                 person, created = Person.objects.get_or_create(first_name=row['FirstName'].strip(), last_name=row['LastName'].strip())
-                rating = rating_dict.get(row['Rating'].lower(), Candidate.RATING_UNKNOWN)
+                
+                rating = row['Rating'].strip().upper()
+                if rating == 'ANTI':
+                    rating = Candidate.RATING_ANTI
+                elif rating == 'PRO':
+                    rating = Candidate.RATING_PRO
+                elif rating == 'MIXED':
+                    rating = Candidate.RATING_MIXED
+                elif rating == 'RECOMMENDED':
+                    rating = Candidate.RATING_RECOMMENDED
+                elif rating == 'ENDORSED':
+                    rating = Candidate.RATING_ENDORSED
+                elif rating == 'UNKNOWN':
+                    rating = Candidate.RATING_UNKNOWN
+                else:
+                    rating = rating_dict.get(row['Rating'].lower(), Candidate.RATING_UNKNOWN)
+
                 endorsed_rating = row.get('Endorsed', '') or ''
                 if endorsed_rating.strip().upper().find("Y") != -1:
                     rating = Candidate.RATING_ENDORSED
