@@ -188,6 +188,7 @@ def import_candidates(request):
                 else:
                     try:
                         office = Office.objects.get(name=row['Office'].strip())
+                        chamber = None
                     except:
                         messages.error(request, _("Couldn't find office: %(office)s" % {'office': row['Office']}))
                         continue
