@@ -206,6 +206,7 @@ class Candidate(models.Model):
     PARTY_I = _("I")
     PARTY_L = _("L")
     PARTY_U = _("U")
+    PARTY_N = _("N")
     PARTY_CHOICES = (
         (PARTY_D, _("Democrat")),
         (PARTY_R, _("Republican")),
@@ -213,6 +214,7 @@ class Candidate(models.Model):
         (PARTY_L, _("Libertarian")),
         (PARTY_G, _("Green")),
         (PARTY_U, _("United Ind.")),
+        (PARTY_N, _("Unaffiliated")),
     )
 
     RATING_UNKNOWN = 0

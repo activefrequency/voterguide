@@ -240,6 +240,10 @@ def import_candidates(request):
                     party = 'L'
                 elif party == 'LIB':
                     party = 'L'
+                elif party == 'UNAFFILIATED':
+                    party = 'N'
+                elif party == 'UNA':
+                    party = 'N'
                 elif party == 'GREEN':
                     party = 'G'
                 elif party == 'UNITED IND.':
