@@ -50,6 +50,7 @@ def mark_as_winner(modeladmin, request, queryset):
     queryset.update(winner=True)
 mark_as_winner.short_description = _("Mark as winner")
 
+
 def copy_to_next_election(modeladmin, request, queryset):
     for obj in queryset:
         # find the next election, and create a Race object for this office/district if it doesn't already exist
@@ -75,4 +76,3 @@ class CandidateAdmin(admin.ModelAdmin):
     search_fields = ('person__full_name', )
     actions = [mark_as_winner, copy_to_next_election, ]
 admin.site.register(Candidate, CandidateAdmin)
-

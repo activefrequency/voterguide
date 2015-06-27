@@ -1,189 +1,143 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+import django.contrib.gis.db.models.fields
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Election'
-        db.create_table(u'voterguide_election', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('state', self.gf('django.db.models.fields.CharField')(default='MA', max_length=2)),
-            ('year', self.gf('django.db.models.fields.IntegerField')(default='2014')),
-            ('election_type', self.gf('django.db.models.fields.CharField')(max_length=1)),
-            ('election_date', self.gf('django.db.models.fields.DateField')()),
-            ('is_active', self.gf('django.db.models.fields.BooleanField')()),
-            ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified_on', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-        ))
-        db.send_create_signal(u'voterguide', ['Election'])
+    dependencies = [
+    ]
 
-        # Adding model 'District'
-        db.create_table(u'voterguide_district', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('code', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
-            ('idx', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            ('state', self.gf('django.db.models.fields.CharField')(default='MA', max_length=2)),
-            ('chamber', self.gf('django.db.models.fields.IntegerField')()),
-            ('num_seats', self.gf('django.db.models.fields.IntegerField')(default=1)),
-            ('openstates_id', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
-            ('openstates_boundary_id', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
-            ('boundaries', self.gf('django.contrib.gis.db.models.fields.MultiPolygonField')(null=True, blank=True)),
-            ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified_on', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-        ))
-        db.send_create_signal(u'voterguide', ['District'])
-
-        # Adding model 'Office'
-        db.create_table(u'voterguide_office', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('priority', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            ('chamber', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified_on', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-        ))
-        db.send_create_signal(u'voterguide', ['Office'])
-
-        # Adding model 'Race'
-        db.create_table(u'voterguide_race', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('election', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['voterguide.Election'])),
-            ('office', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['voterguide.Office'])),
-            ('state', self.gf('django.db.models.fields.CharField')(default='MA', max_length=2)),
-            ('district', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['voterguide.District'], null=True, blank=True)),
-            ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified_on', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-        ))
-        db.send_create_signal(u'voterguide', ['Race'])
-
-        # Adding model 'Person'
-        db.create_table(u'voterguide_person', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('full_name', self.gf('django.db.models.fields.CharField')(max_length=100, blank=True)),
-            ('first_name', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
-            ('middle', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
-            ('last_name', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
-            ('suffixes', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
-            ('openstates_legid', self.gf('django.db.models.fields.CharField')(max_length=20, blank=True)),
-            ('photo_url', self.gf('django.db.models.fields.URLField')(max_length=200, blank=True)),
-            ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified_on', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-        ))
-        db.send_create_signal(u'voterguide', ['Person'])
-
-        # Adding model 'Candidate'
-        db.create_table(u'voterguide_candidate', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('person', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['voterguide.Person'])),
-            ('race', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['voterguide.Race'])),
-            ('is_incumbent', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('party', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('rating', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            ('featured', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified_on', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-        ))
-        db.send_create_signal(u'voterguide', ['Candidate'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'Election'
-        db.delete_table(u'voterguide_election')
-
-        # Deleting model 'District'
-        db.delete_table(u'voterguide_district')
-
-        # Deleting model 'Office'
-        db.delete_table(u'voterguide_office')
-
-        # Deleting model 'Race'
-        db.delete_table(u'voterguide_race')
-
-        # Deleting model 'Person'
-        db.delete_table(u'voterguide_person')
-
-        # Deleting model 'Candidate'
-        db.delete_table(u'voterguide_candidate')
-
-
-    models = {
-        u'voterguide.candidate': {
-            'Meta': {'ordering': "[u'race__state', u'race__election', u'race__office', u'race__district', u'person__last_name', u'person__first_name']", 'object_name': 'Candidate'},
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'featured': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_incumbent': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'modified_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'party': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
-            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['voterguide.Person']"}),
-            'race': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['voterguide.Race']"}),
-            'rating': ('django.db.models.fields.IntegerField', [], {'default': '0'})
-        },
-        u'voterguide.district': {
-            'Meta': {'ordering': "[u'-chamber', u'idx', u'code', u'name']", 'object_name': 'District'},
-            'boundaries': ('django.contrib.gis.db.models.fields.MultiPolygonField', [], {'null': 'True', 'blank': 'True'}),
-            'chamber': ('django.db.models.fields.IntegerField', [], {}),
-            'code': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'idx': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'modified_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'num_seats': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
-            'openstates_boundary_id': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'openstates_id': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'state': ('django.db.models.fields.CharField', [], {'default': "'MA'", 'max_length': '2'})
-        },
-        u'voterguide.election': {
-            'Meta': {'ordering': "[u'-is_active', u'election_date']", 'object_name': 'Election'},
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'election_date': ('django.db.models.fields.DateField', [], {}),
-            'election_type': ('django.db.models.fields.CharField', [], {'max_length': '1'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_active': ('django.db.models.fields.BooleanField', [], {}),
-            'modified_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'state': ('django.db.models.fields.CharField', [], {'default': "'MA'", 'max_length': '2'}),
-            'year': ('django.db.models.fields.IntegerField', [], {'default': "'2014'"})
-        },
-        u'voterguide.office': {
-            'Meta': {'ordering': "[u'-priority']", 'object_name': 'Office'},
-            'chamber': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'modified_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'priority': ('django.db.models.fields.IntegerField', [], {'default': '0'})
-        },
-        u'voterguide.person': {
-            'Meta': {'ordering': "[u'last_name', u'first_name']", 'object_name': 'Person'},
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
-            'full_name': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
-            'middle': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
-            'modified_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'openstates_legid': ('django.db.models.fields.CharField', [], {'max_length': '20', 'blank': 'True'}),
-            'photo_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
-            'suffixes': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'})
-        },
-        u'voterguide.race': {
-            'Meta': {'ordering': "[u'state', u'election', u'office', u'district']", 'object_name': 'Race'},
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'district': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['voterguide.District']", 'null': 'True', 'blank': 'True'}),
-            'election': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['voterguide.Election']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'modified_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'office': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['voterguide.Office']"}),
-            'state': ('django.db.models.fields.CharField', [], {'default': "'MA'", 'max_length': '2'})
-        }
-    }
-
-    complete_apps = ['voterguide']
+    operations = [
+        migrations.CreateModel(
+            name='Candidate',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('is_incumbent', models.BooleanField(default=False, verbose_name='Incumbent')),
+                ('party', models.CharField(blank=True, max_length=2, null=True, verbose_name='Party', choices=[('D', 'Democrat'), ('R', 'Republican'), ('I', 'Independent'), ('L', 'Libertarian'), ('G', 'Green'), ('U', 'United Ind.'), ('N', 'Unaffiliated')])),
+                ('rating', models.IntegerField(default=0, verbose_name='Rating', choices=[(100, 'Endorsed'), (60, 'Pro-Choice'), (50, 'Recommended'), (40, 'Mixed'), (20, 'Anti-Choice'), (0, 'Unknown')])),
+                ('featured', models.BooleanField(default=False, verbose_name='Featured')),
+                ('winner', models.BooleanField(default=False, verbose_name='Winner')),
+                ('is_endorsed', models.BooleanField(default=False, verbose_name='Endorsed?', editable=False)),
+                ('is_pro', models.BooleanField(default=False, verbose_name='Endorsed or Pro?', editable=False)),
+                ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
+                ('modified_on', models.DateTimeField(auto_now=True, verbose_name='Modified')),
+            ],
+            options={
+                'ordering': ['race__state', 'race__election', 'race__office', 'race__district', 'person__last_name', 'person__first_name'],
+                'verbose_name': 'Candidate',
+                'verbose_name_plural': 'Candidates',
+            },
+        ),
+        migrations.CreateModel(
+            name='District',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=200, verbose_name='Name')),
+                ('code', models.CharField(help_text="Sortable code, i.e. 'MID08'", max_length=50, verbose_name='Code', blank=True)),
+                ('idx', models.IntegerField(default=0, help_text="Sort order; useful if sorting by district name alphabetically doesn't make sense and we don't have codes. ", verbose_name='Order')),
+                ('state', models.CharField(default=b'MA', max_length=2, verbose_name='State')),
+                ('chamber', models.IntegerField(verbose_name='Chamber', choices=[(1, 'State Senate'), (2, 'State House'), (3, 'County')])),
+                ('num_seats', models.IntegerField(default=1, help_text='Number of seats in district - typically 1', verbose_name='# Seats')),
+                ('openstates_id', models.CharField(help_text="ID from OpenStates API, e.g. 'ma-lower-Eighth Middlesex'", max_length=100, null=True, verbose_name='OpenStates ID', blank=True)),
+                ('openstates_boundary_id', models.CharField(help_text="Boundary ID from OpenStates API, e.g. 'sldu/ma-worcester-middlesex'", max_length=100, null=True, verbose_name='OpenStates Boundary ID', blank=True)),
+                ('boundaries', django.contrib.gis.db.models.fields.MultiPolygonField(srid=4326, null=True, verbose_name='Boundaries', blank=True)),
+                ('county', models.CharField(max_length=100, null=True, verbose_name='County', blank=True)),
+                ('is_floterial', models.BooleanField(default=False)),
+                ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
+                ('modified_on', models.DateTimeField(auto_now=True, verbose_name='Modified')),
+                ('floterial_to', models.ManyToManyField(related_name='floterial_to_rel_+', to='voterguide.District', blank=True)),
+            ],
+            options={
+                'ordering': ['chamber', 'idx', 'code', 'name'],
+                'verbose_name': 'District',
+                'verbose_name_plural': 'Districts',
+            },
+        ),
+        migrations.CreateModel(
+            name='Election',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=100, verbose_name='Name')),
+                ('state', models.CharField(default=b'MA', max_length=2, verbose_name='State')),
+                ('year', models.IntegerField(default=b'2014', verbose_name='Year')),
+                ('election_type', models.CharField(max_length=1, verbose_name='Election type', choices=[('P', 'Primary'), ('G', 'General'), ('S', 'Special')])),
+                ('election_date', models.DateField(verbose_name='Election date')),
+                ('is_active', models.BooleanField(help_text="Only one election at a time should be 'active' - this is what's featured on the site.", verbose_name='Active')),
+                ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
+                ('modified_on', models.DateTimeField(auto_now=True, verbose_name='Modified')),
+            ],
+            options={
+                'ordering': ['-is_active', 'election_date'],
+                'verbose_name': 'Election',
+                'verbose_name_plural': 'Elections',
+            },
+        ),
+        migrations.CreateModel(
+            name='Office',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=100, verbose_name='Name')),
+                ('priority', models.IntegerField(default=0, help_text="Higher score means it'll be listed first in a list with multiple offices.", verbose_name='Priority')),
+                ('chamber', models.IntegerField(blank=True, help_text='Optional', null=True, verbose_name='Chamber', choices=[(1, 'State Senate'), (2, 'State House'), (3, 'County')])),
+                ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
+                ('modified_on', models.DateTimeField(auto_now=True, verbose_name='Modified')),
+            ],
+            options={
+                'ordering': ['-priority'],
+                'verbose_name': 'Office',
+                'verbose_name_plural': 'Offices',
+            },
+        ),
+        migrations.CreateModel(
+            name='Person',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('full_name', models.CharField(help_text='How the full name should be displayed, with any punctuation.', max_length=100, verbose_name='Full name', blank=True)),
+                ('first_name', models.CharField(max_length=50, verbose_name='First name', blank=True)),
+                ('middle', models.CharField(max_length=50, verbose_name='Middle name', blank=True)),
+                ('last_name', models.CharField(max_length=50, verbose_name='Last name', blank=True)),
+                ('suffixes', models.CharField(max_length=50, verbose_name='Suffixes', blank=True)),
+                ('openstates_legid', models.CharField(help_text="Permanent OpenStates leg_id - i.e. 'ILL000555'", max_length=20, verbose_name='OpenStates ID', blank=True)),
+                ('photo_url', models.CharField(help_text='URL to candidate photo (optional)', max_length=200, verbose_name='Photo URL', blank=True)),
+                ('blurb', models.TextField(help_text='Blurb if featured (can contain HTML)', max_length=500, verbose_name='Blurb', blank=True)),
+                ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
+                ('modified_on', models.DateTimeField(auto_now=True, verbose_name='Modified')),
+            ],
+            options={
+                'ordering': ['last_name', 'first_name'],
+                'verbose_name': 'Person',
+                'verbose_name_plural': 'People',
+            },
+        ),
+        migrations.CreateModel(
+            name='Race',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('state', models.CharField(default=b'MA', max_length=2, verbose_name='State')),
+                ('has_endorsement', models.BooleanField(default=False, editable=False)),
+                ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
+                ('modified_on', models.DateTimeField(auto_now=True, verbose_name='Modified')),
+                ('district', models.ForeignKey(blank=True, to='voterguide.District', help_text='Optional - blank if statewide race.', null=True)),
+                ('election', models.ForeignKey(to='voterguide.Election')),
+                ('office', models.ForeignKey(to='voterguide.Office')),
+            ],
+            options={
+                'ordering': ['state', 'election', 'office', 'district'],
+                'verbose_name': 'Race',
+                'verbose_name_plural': 'Races',
+            },
+        ),
+        migrations.AddField(
+            model_name='candidate',
+            name='person',
+            field=models.ForeignKey(to='voterguide.Person'),
+        ),
+        migrations.AddField(
+            model_name='candidate',
+            name='race',
+            field=models.ForeignKey(to='voterguide.Race'),
+        ),
+    ]

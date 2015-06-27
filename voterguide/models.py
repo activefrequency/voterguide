@@ -21,7 +21,7 @@ class Election(models.Model):
         (ELECTION_TYPE_GENERAL, _("General")),
         (ELECTION_TYPE_SPECIAL, _("Special")),
     )
-    
+
     name = models.CharField(verbose_name=_("Name"), max_length=100)
     state = models.CharField(verbose_name=_("State"), max_length=2, default=settings.VOTERGUIDE_SETTINGS['DEFAULT_STATE'])
     year = models.IntegerField(verbose_name=_("Year"), default=settings.VOTERGUIDE_SETTINGS['DEFAULT_YEAR'])
@@ -64,12 +64,12 @@ class District(models.Model):
 
     openstates_id = models.CharField(verbose_name=_("OpenStates ID"), max_length=100, blank=True, null=True, help_text=_("ID from OpenStates API, e.g. 'ma-lower-Eighth Middlesex'"))
     openstates_boundary_id = models.CharField(verbose_name=_("OpenStates Boundary ID"), max_length=100, blank=True, null=True, help_text=_("Boundary ID from OpenStates API, e.g. 'sldu/ma-worcester-middlesex'"))
-    
+
     # MultiPolygon rather than a GeometryCollection - the latter can't be searched effectively
     boundaries = models.MultiPolygonField(verbose_name=_("Boundaries"), blank=True, null=True)
 
     county = models.CharField(verbose_name=_("County"), max_length=100, blank=True, null=True)
-    floterial_to = models.ManyToManyField("self", blank=True, null=True, related_name="floterial_districts")
+    floterial_to = models.ManyToManyField("self", blank=True, related_name="floterial_districts")
     is_floterial = models.BooleanField(default=False)
 
     created_on = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True, editable=False)
@@ -349,4 +349,3 @@ NUMERALS = {
     "39": (39, "39th"),
     "40": (40, "40th"),
 }
-

@@ -22,7 +22,7 @@ def placeholder(request):
     Placeholder page while primary results are switched to general.
     """
     return render(request, "voterguide/placeholder.html", {
-        
+
     })
 
 
@@ -58,7 +58,7 @@ def district_lookup(request):
     lng = request.GET.get('lng', None)
     county = request.GET.get('county', None)
     address = request.GET.get('address', '')
-    
+
     # TODO: throw nicer error here if current elections <> 1
     current_election = Election.objects.get(is_active=True)
 
@@ -219,7 +219,7 @@ def import_candidates(request):
                         winner_of_race = None
                 else:
                     winner_of_race = None
-                
+
                 # party - sort out common (non-)abbreviations
                 party = row['Party'].strip().upper()
                 if party == 'DEMOCRATIC':
@@ -252,7 +252,7 @@ def import_candidates(request):
                 # Find or create Person/Candidate
                 # TODO: what about people with same first/last name? Need to check for district, too...
                 person, created = Person.objects.get_or_create(first_name=row['FirstName'].strip(), last_name=row['LastName'].strip())
-                
+
                 rating = row['Rating'].strip().upper()
                 if rating == 'ANTI':
                     rating = Candidate.RATING_ANTI
@@ -285,7 +285,7 @@ def import_candidates(request):
                     for k, v in values.iteritems():
                         setattr(candidate, k, v)
                     candidate.save()
-                
+
                 # if the person was in a prior race, mark them as the winner
                 if winner_of_race:
                     Candidate.objects.filter(person=person, race=winner_of_race).update(winner=True)
@@ -358,4 +358,3 @@ def import_districts(request):
     return render(request, "voterguide/import_districts.html", {
         'form': form,
     })
-
