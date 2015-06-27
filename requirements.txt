@@ -16,6 +16,7 @@ dj-static==0.0.6
 unicodecsv==0.13.0
 django-front==0.4.8
 django-appconf==1.0.1
+django-flat-theme==0.9.5
 
 # Sunlight Foundation API bindings
 sunlight==1.2.9
