@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=200, verbose_name='Name')),
                 ('code', models.CharField(help_text="Sortable code, i.e. 'MID08'", max_length=50, verbose_name='Code', blank=True)),
                 ('idx', models.IntegerField(default=0, help_text="Sort order; useful if sorting by district name alphabetically doesn't make sense and we don't have codes. ", verbose_name='Order')),
-                ('state', models.CharField(default=b'MA', max_length=2, verbose_name='State')),
+                ('state', models.CharField(default=b'WA', max_length=2, verbose_name='State')),
                 ('chamber', models.IntegerField(verbose_name='Chamber', choices=[(1, 'State Senate'), (2, 'State House'), (3, 'County')])),
                 ('num_seats', models.IntegerField(default=1, help_text='Number of seats in district - typically 1', verbose_name='# Seats')),
                 ('openstates_id', models.CharField(help_text="ID from OpenStates API, e.g. 'ma-lower-Eighth Middlesex'", max_length=100, null=True, verbose_name='OpenStates ID', blank=True)),
@@ -61,7 +61,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=100, verbose_name='Name')),
-                ('state', models.CharField(default=b'MA', max_length=2, verbose_name='State')),
+                ('state', models.CharField(default=b'WA', max_length=2, verbose_name='State')),
                 ('year', models.IntegerField(default=b'2014', verbose_name='Year')),
                 ('election_type', models.CharField(max_length=1, verbose_name='Election type', choices=[('P', 'Primary'), ('G', 'General'), ('S', 'Special')])),
                 ('election_date', models.DateField(verbose_name='Election date')),
@@ -116,7 +116,7 @@ class Migration(migrations.Migration):
             name='Race',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('state', models.CharField(default=b'MA', max_length=2, verbose_name='State')),
+                ('state', models.CharField(default=b'WA', max_length=2, verbose_name='State')),
                 ('has_endorsement', models.BooleanField(default=False, editable=False)),
                 ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created')),
                 ('modified_on', models.DateTimeField(auto_now=True, verbose_name='Modified')),
