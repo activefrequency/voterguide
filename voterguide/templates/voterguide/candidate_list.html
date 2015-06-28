@@ -19,7 +19,7 @@
     {% end_front_edit %}
     <br>
     
-    <form action="{% url 'candidate_list' %}" method="GET">
+    <form action="{% url 'candidate_list' %}" method="GET" class="hidden-xs">
         <table class="table-filter">
             <tr>
                 <td>{{ candidate_filter.office.label_tag }}</td>

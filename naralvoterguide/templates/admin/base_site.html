@@ -4,9 +4,9 @@
 {% block title %}{{ title }} | {% trans 'NARAL Voter Guide Admin' %}{% endblock %}
 
 {% block branding %}
-<h1 id="site-name">{% trans 'NARAL Voter Guide Admin' %}</h1>
+<h1 id="site-name" style="display: inline-block;">{% trans 'NARAL Voter Guide Admin' %}</h1>
 {% if user.is_superuser %}
-    <p style="margin-left: 2em;"><a href="{% url 'import_candidates' %}">{% trans 'Import Candidates' %}</a></p>
+    <a href="{% url 'import_candidates' %}">{% trans 'Import Candidates' %}</a>
 {% endif %}
 
 {% endblock %}

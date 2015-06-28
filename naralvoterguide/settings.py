@@ -184,6 +184,7 @@ SUNLIGHT_API_KEY = os.environ.get('SUNLIGHT_API_KEY', '')
 VOTERGUIDE_SETTINGS = {
     'DEFAULT_STATE': os.environ.get('VOTERGUIDE_DEFAULT_STATE', 'MA'),
     'DEFAULT_YEAR': os.environ.get('VOTERGUIDE_DEFAULT_YEAR', '2014'),
+    'SHOW_ENDORSEMENTS': bool(os.environ.get('VOTERGUIDE_SHOW_ENDORSEMENTS', '1') == '1'),
     'BRANDING': {
         'ORG_NAME': os.environ.get('VOTERGUIDE_BRANDING_ORG_NAME', 'NARAL Pro-Choice Massachusetts'),
         'ORG_URL': os.environ.get('VOTERGUIDE_BRANDING_ORG_URL', 'http://www.prochoicemass.org'),

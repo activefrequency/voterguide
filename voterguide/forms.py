@@ -21,9 +21,9 @@ class CandidateFilterForm(forms.Form):
     NB: not using django-filter here because the special cases of the "Statewide" option and Pro-Choice = "Endorsed" would be more difficult than it's worth.
     """
     office = forms.ModelChoiceField(label=_("Office"), required=False, queryset=Office.objects.all(), empty_label=_(" - ANY - "))
-    party = forms.ChoiceField(label=_("Party"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.PARTY_CHOICES) )
+    party = forms.ChoiceField(label=_("Party"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.PARTY_CHOICES))
     # 'Pro' should include 'Endorsed' - handle in the view
-    rating = forms.ChoiceField(label=_("Pro-Choice Rating"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.RATING_CHOICES) )
+    rating = forms.ChoiceField(label=_("Pro-Choice Rating"), required=False, choices=((('', _(" - ANY - ")),) + Candidate.RATING_CHOICES))
     # only races with endorsements
     with_endorsements = forms.BooleanField(label=_("Only show races with endorsements"), required=False)
 
@@ -33,5 +33,4 @@ class CandidateFilterForm(forms.Form):
         self.fields['district'] = forms.ChoiceField(label=_("District"), required=False, choices=([('', _(" - ANY - ")), ('S', _("Statewide")), ] + [(d.id, d) for d in District.objects.all()]))
         active_ratings = [r[0] for r in Candidate.objects.all().order_by('-rating').distinct('rating').values_list('rating')]
         choices_dict = dict(Candidate.RATING_CHOICES)
-        self.fields['rating'].choices = [('', _(" - ANY - ")),] + [(r, choices_dict[r]) for r in active_ratings]
-
+        self.fields['rating'].choices = [('', _(" - ANY - ")), ] + [(r, choices_dict[r]) for r in active_ratings]

@@ -146,6 +146,9 @@ def candidate_list(request):
 
     # only show 'endorsements' checkbox if there are ANY endorsed candidates
     show_endorsements = Race.objects.filter(has_endorsement=True).exists()
+    # let setting override whether or not there are endorsements
+    if not settings.VOTERGUIDE_SETTINGS.get('SHOW_ENDORSEMENTS', False):
+        show_endorsements = False
 
     return render(request, "voterguide/candidate_list.html", {
         'candidates': candidates,
