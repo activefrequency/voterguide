@@ -87,14 +87,15 @@ def district_lookup(request):
         })
 
     # TODO: log this - we really shouldn't have more than two (House + Senate)
-    if districts.count() > 2:
-        raise Http404("Found more than one district.")
+    # ...except with Seattle City Council we definitely could.
+    # if districts.count() > 2:
+    #     raise Http404("Found more than one district.")
 
     conditions = Q(race__district__in=districts) | Q(race__district__floterial_to__in=districts)
     if county:
         conditions = Q(conditions | Q(race__district__county=county))
 
-    candidates = Candidate.objects.filter(race__election=current_election).filter(conditions).select_related('person', 'race', 'race__office', 'race__district').order_by(
+    candidates = Candidate.objects.filter(race__election=current_election).filter(conditions).distinct().select_related('person', 'race', 'race__office', 'race__district').order_by(
         'race__state', 'race__election', 'race__office', 'race__district', '-is_incumbent', 'person__last_name', 'person__first_name')
 
     return render(request, "voterguide/district.html", {
