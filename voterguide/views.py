@@ -57,6 +57,7 @@ def district_lookup(request):
     lat = request.GET.get('lat', None)
     lng = request.GET.get('lng', None)
     county = request.GET.get('county', None)
+    city = request.GET.get('city', None)
     address = request.GET.get('address', '')
 
     # TODO: throw nicer error here if current elections <> 1
@@ -94,6 +95,8 @@ def district_lookup(request):
     conditions = Q(race__district__in=districts) | Q(race__district__floterial_to__in=districts)
     if county:
         conditions = Q(conditions | Q(race__district__county=county))
+    if city:
+        conditions = Q(conditions | Q(race__district__city=city))
 
     candidates = Candidate.objects.filter(race__election=current_election).filter(conditions).distinct().select_related('person', 'race', 'race__office', 'race__district').order_by(
         'race__state', 'race__election', 'race__office', 'race__district', '-is_incumbent', 'person__last_name', 'person__first_name')

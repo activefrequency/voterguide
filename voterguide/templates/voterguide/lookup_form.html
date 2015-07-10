@@ -15,6 +15,7 @@
     <input type="hidden" name="lng" id="address_lng">
     <input type="hidden" name="address" id="address_str">
     <input type="hidden" name="county" id="address_county">
+    <input type="hidden" name="city" id="address_city">
 </form>
 
 <script type="text/javascript">
@@ -34,7 +35,9 @@
                 $.each(results[0].address_components, function(idx, component) {
                     if (component.short_name.indexOf("County") != -1) {
                         $('#address_county').val(component.short_name.replace("County", "").trim());
-                        console.log( $('#address_county').val() );
+                    }
+                    if ((component.types[0] == "locality") && (component.types[1] == "political")) {
+                        $('#address_city').val(component.long_name.trim());
                     }
                 });
 

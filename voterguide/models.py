@@ -70,7 +70,11 @@ class District(models.Model):
     # MultiPolygon rather than a GeometryCollection - the latter can't be searched effectively
     boundaries = models.MultiPolygonField(verbose_name=_("Boundaries"), blank=True, null=True)
 
+    # county- and city-wide races
     county = models.CharField(verbose_name=_("County"), max_length=100, blank=True, null=True)
+    city = models.CharField(verbose_name=_("City"), max_length=100, blank=True, null=True)
+
+    # floterial districts
     floterial_to = models.ManyToManyField("self", blank=True, related_name="floterial_districts")
     is_floterial = models.BooleanField(default=False)
 
