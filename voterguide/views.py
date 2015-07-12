@@ -178,7 +178,7 @@ def import_candidates(request):
             winner_of_election = form.cleaned_data.get('winner_of_election')
             data = form.cleaned_data.get('csv')
             f = StringIO.StringIO(data)
-            reader = unicodecsv.DictReader(f, encoding='utf-8', fieldnames=['Office', 'District', 'Priority', 'Status', 'FirstName', 'LastName', 'Party', 'Rating', 'Incumbent', 'Endorsed'])
+            reader = unicodecsv.DictReader(f, encoding='utf-8', fieldnames=['Office', 'Geography', 'District', 'Priority', 'Status', 'FirstName', 'LastName', 'Party', 'Rating', 'Incumbent', 'Endorsed'])
 
             # Candidate For,District,Priority,Status,First,Last,Party,Rating,Incumbent?,Voted to Endorse?
             # State Representative,6th Hampden,4,Contested,Michael,Finn,D,Unknown,Yes,
@@ -205,15 +205,32 @@ def import_candidates(request):
                 if district_name == 'Statewide' or district_name == '':
                     district = None
                 else:
+                    # ex: Bellingham City Council Ward 3
+                    # ex: Spokane Mayor
+                    # ex: Snohomish County Council District 1
+                    # ex: Snohomish County Executive
+                    if district_name == 'N/A':
+                        if row['Office'] == 'County Executive':
+                            district_name = row['Geography'].strip()
+                        else:
+                            district_name = "{} {}".format(row['Geography'].strip(), row['Office'].strip())
+                    else:
+                        district_name = "{} {} {}".format(row['Geography'].strip(), row['Office'].strip(), row['District'].strip())
+
                     # first, try it as-is; then try replacing ordinals
                     district_name = district_name.replace('  ', ' ').replace('  ', ' ').strip()
+                    district_name = district_name.replace('County County', 'County')
                     try:
+                        if 'county' in district_name.lower():
+                            chamber = District.CHAMBER_COUNTY
+                        else:
+                            chamber = District.CHAMBER_CITY
                         district = District.objects.get(name=district_name, chamber=chamber, state=state)
                     except District.DoesNotExist:
                         try:
                             district = District.objects.get(name=normalize_ordinals(district_name), chamber=chamber, state=state)
                         except District.DoesNotExist:
-                            messages.error(request, _("Couldn't find district: %(district)s" % {'district': row['District']}))
+                            messages.error(request, _("Couldn't find district: %(district)s" % {'district': district_name}))
                             continue
 
                 # Find or create race
@@ -259,6 +276,9 @@ def import_candidates(request):
                 # Find or create Person/Candidate
                 # TODO: what about people with same first/last name? Need to check for district, too...
                 person, created = Person.objects.get_or_create(first_name=row['FirstName'].strip(), last_name=row['LastName'].strip())
+                # For now, at least note the "same-name" people, so we can check them manually
+                if not created:
+                    messages.info(request, _("Candidate name match: %(first_name)s %(last_name)s" % {'first_name': row['FirstName'].strip(), 'last_name': row['LastName'].strip()}))
 
                 rating = row['Rating'].strip().upper()
                 if rating == 'ANTI':
@@ -286,12 +306,7 @@ def import_candidates(request):
                     'featured': False,
                     'winner': False,
                 }
-                candidate, created = Candidate.objects.get_or_create(person=person, race=race, defaults=values)
-                # TODO: when 1.7 lands, can be replaced with update_or_create
-                if not created:
-                    for k, v in values.iteritems():
-                        setattr(candidate, k, v)
-                    candidate.save()
+                candidate, created = Candidate.objects.update_or_create(person=person, race=race, defaults=values)
 
                 # if the person was in a prior race, mark them as the winner
                 if winner_of_race:
