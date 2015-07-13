@@ -87,7 +87,7 @@ class District(models.Model):
     class Meta:
         verbose_name = _("District")
         verbose_name_plural = _("Districts")
-        ordering = ['chamber', 'idx', 'code', 'name']
+        ordering = ['chamber', 'code', 'name', 'idx']
 
     def __str__(self):
         return '{} - {}'.format(self.get_chamber_display(), self.name)
@@ -246,6 +246,8 @@ class Candidate(models.Model):
     rating = models.IntegerField(verbose_name=_("Rating"), choices=RATING_CHOICES, default=RATING_UNKNOWN)
     featured = models.BooleanField(verbose_name=_("Featured"), default=False)
     winner = models.BooleanField(verbose_name=_("Winner"), default=False)
+    about_blurb = models.TextField(verbose_name=_("'About' Blurb"), blank=True, max_length=500, help_text=_("Candidate Statement (can contain HTML)"))
+
     # derived fields to make sorting & filtering easier
     is_endorsed = models.BooleanField(verbose_name=_("Endorsed?"), default=False, editable=False)
     is_pro = models.BooleanField(verbose_name=_("Endorsed or Pro?"), default=False, editable=False)

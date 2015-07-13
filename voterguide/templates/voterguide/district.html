@@ -46,6 +46,26 @@
                                         </td>
                                     {% endif %}
                                 {% endif %}
+
+                                {% if candidate.about_blurb %}
+                                    <td class="nobg icon-container">
+                                        <i class="fa fa-info-circle modal-trigger" data-toggle="modal" data-target="#candidate_blurb_{{ candidate.id }}"></i>
+                                        
+                                        <div class="modal fade" id="candidate_blurb_{{ candidate.id }}" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title">{{ candidate.person.full_name }}</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        {{ candidate.about_blurb|linebreaksbr|safe }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                     </tbody>
