@@ -70,9 +70,24 @@
                 <tr class="{% if candidate.rating == candidate.RATING_ENDORSED %}success{% endif %}" data-filter-value="{{ candidate.person.full_name }}">
                     <td>{{ candidate.race.office.name }}</td>
                     <td>{% if candidate.race.district %}{{ candidate.race.district.name }}{% else %}{% trans "Statewide" %}{% endif %}</td>
-                    <td>{{ candidate.person.full_name }} {% if candidate.is_incumbent %}<b>({% trans "Incumbent" %})</b>{% endif %}</td>
-                    <td>{{ candidate.get_party_display }}</td>
-                    <td>{{ candidate.get_rating_display }}</td>
+                    <td>
+                        {{ candidate.person.full_name }} {% if candidate.is_incumbent %}<b>({% trans "Incumbent" %})</b>{% endif %}
+                        {% if request.user.is_authenticated and request.user.is_staff %}
+                            <a href="{% url 'admin:voterguide_person_change' candidate.person.id %}"><i class="fa fa-pencil-square-o"></i></a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ candidate.get_party_display }}
+                        {% if request.user.is_authenticated and request.user.is_staff %}
+                            <a href="{% url 'admin:voterguide_candidate_change' candidate.id %}"><i class="fa fa-pencil-square-o"></i></a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ candidate.get_rating_display }}
+                        {% if request.user.is_authenticated and request.user.is_staff %}
+                            <a href="{% url 'admin:voterguide_candidate_change' candidate.id %}"><i class="fa fa-pencil-square-o"></i></a>
+                        {% endif %}
+                    </td>
                     {% if candidate.rating == candidate.RATING_ENDORSED %}
                         <td class="nobg icon-container">
                             <i class="fa fa-check-circle"></i>
