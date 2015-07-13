@@ -41,7 +41,9 @@
             {% block navbar %}
                 <ul class="nav nav-pills pull-right hidden-xs">
                     <li class="{% if active_page == 'local' %}active{% endif %}"><a href="{% url 'district_lookup' %}">{% trans "Local" %}</a></li>
-                    <li class="{% if active_page == 'statewide' %}active{% endif %}"><a href="{% url 'statewide' %}">{% trans "Statewide" %}</a></li>
+                    {% if BRANDING.SHOW_STATEWIDE %}
+                        <li class="{% if active_page == 'statewide' %}active{% endif %}"><a href="{% url 'statewide' %}">{% trans "Statewide" %}</a></li>
+                    {% endif %}
                     <li class="{% if active_page == 'candidate_list' %}active{% endif %}"><a href="{% url 'candidate_list' %}">{% trans "All Candidates" %}</a></li>
                     <li class="{% if active_page == 'about' %}active{% endif %}"><a href="{% url 'about' %}">{% trans "About" %}</a></li>
                 </ul>
@@ -49,7 +51,9 @@
 
                 <ul class="nav nav-pills visible-xs-block">
                     <li class="{% if active_page == 'local' %}active{% endif %}"><a href="{% url 'district_lookup' %}">{% trans "Local" %}</a></li>
-                    <li class="{% if active_page == 'statewide' %}active{% endif %}"><a href="{% url 'statewide' %}">{% trans "Statewide" %}</a></li>
+                    {% if BRANDING.SHOW_STATEWIDE %}
+                        <li class="{% if active_page == 'statewide' %}active{% endif %}"><a href="{% url 'statewide' %}">{% trans "Statewide" %}</a></li>
+                    {% endif %}
                     <li class="{% if active_page == 'candidate_list' %}active{% endif %}"><a href="{% url 'candidate_list' %}">{% trans "All Candidates" %}</a></li>
                     <li class="{% if active_page == 'about' %}active{% endif %}"><a href="{% url 'about' %}">{% trans "About" %}</a></li>
                 </ul>
