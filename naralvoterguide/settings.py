@@ -203,7 +203,8 @@ VOTERGUIDE_SETTINGS = {
 GOOGLE_ANALYTICS_PROPERTY_ID = os.environ.get('GOOGLE_ANALYTICS_PROPERTY_ID', '')
 
 # turn on "Placeholder mode" - hijacks to placeholder page
-SHOW_PLACEHOLDER = os.environ.get('SHOW_PLACEHOLDER', False)
+SHOW_PLACEHOLDER = bool(os.environ.get('VOTERGUIDE_SHOW_PLACEHOLDER', '0') == '1')
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

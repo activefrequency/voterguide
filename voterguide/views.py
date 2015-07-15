@@ -1,4 +1,5 @@
 from __future__ import unicode_literals, print_function, division, absolute_import
+from functools import wraps
 
 from django.utils.translation import ugettext as _
 from django.shortcuts import render
@@ -8,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
 from django.conf import settings
+from django.utils.decorators import available_attrs
 
 from .models import District, Office, Race, Election, Person, Candidate
 from .forms import CandidateImportForm, DistrictImportForm, CandidateFilterForm
@@ -15,6 +17,20 @@ from .utils import normalize_ordinals
 
 import StringIO
 import unicodecsv
+
+
+
+def placeholder_if_on(view_func):
+    """
+    Decorator to force a placeholder if placeholder mode is on
+    and a non-logged-in user hits the site.
+    """
+    @wraps(view_func, assigned=available_attrs(view_func))
+    def _wrapped_view(request, *args, **kwargs):
+        if settings.SHOW_PLACEHOLDER and not (request.user.is_authenticated() and request.user.is_staff):
+            return placeholder(request)
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
 
 
 def placeholder(request):
@@ -26,6 +42,7 @@ def placeholder(request):
     })
 
 
+@placeholder_if_on
 def home(request):
     current_election = Election.objects.get(is_active=True)
     featured = Candidate.objects.filter(race__election=current_election, featured=True).order_by('?').select_related('person').first()
@@ -36,6 +53,7 @@ def home(request):
     })
 
 
+@placeholder_if_on
 def statewide(request):
     current_election = Election.objects.get(is_active=True)
     candidates = Candidate.objects.filter(race__election=current_election, race__district=None).select_related('person', 'race', 'race__office', 'race__district').order_by(
@@ -47,12 +65,14 @@ def statewide(request):
     })
 
 
+@placeholder_if_on
 def about(request):
     return render(request, "voterguide/about.html", {
         'active_page': 'about',
     })
 
 
+@placeholder_if_on
 def district_lookup(request):
     lat = request.GET.get('lat', None)
     lng = request.GET.get('lng', None)
@@ -112,6 +132,7 @@ def district_lookup(request):
     })
 
 
+@placeholder_if_on
 def candidate_list(request):
     current_election = Election.objects.get(is_active=True)
     candidates = Candidate.objects.filter(race__election=current_election).select_related('person', 'race', 'race__office', 'race__district').order_by(
