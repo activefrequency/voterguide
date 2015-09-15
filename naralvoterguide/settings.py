@@ -179,6 +179,10 @@ EMAIL_USE_TLS = True
 SERVER_EMAIL = os.environ.get('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = os.environ.get('SERVER_EMAIL')
 
+# GeoDjango settings
+GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH', '')
+GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH', '')
+
 SUNLIGHT_API_KEY = os.environ.get('SUNLIGHT_API_KEY', '')
 
 VOTERGUIDE_SETTINGS = {
