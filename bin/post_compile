@@ -18,6 +18,13 @@ if [ -f bin/install_nodejs ]; then
     npm install -g less
 fi
 
+# debug
+echo $GEOS_LIBRARY_PATH
+ls $GEOS_LIBRARY_PATH
+ls /app
+ls /app/.geodjango
+ls /app/.geodjango/geos/
+
 python manage.py migrate --noinput
 python manage.py compress -v 0
 
