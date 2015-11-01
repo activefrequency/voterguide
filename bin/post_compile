@@ -19,6 +19,7 @@ if [ -f bin/install_nodejs ]; then
 fi
 
 # debug
+echo $GEOS_LIBRARY_PATH
 
 python manage.py migrate --noinput
 python manage.py compress -v 0
