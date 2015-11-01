@@ -20,10 +20,10 @@ export MEMCACHE_SERVERS='' MEMCACHIER_SERVERS=''
 
 # debug
 echo $GEOS_LIBRARY_PATH
-ls /app
-ls /app/.heroku
-ls /app/.heroku/vendor
-ls /app/.heroku/vendor/lib
+ls -la /app
+ls -la /app/.heroku
+ls -la /app/.heroku/vendor
+ls -la /app/.heroku/vendor/lib
 
 python manage.py migrate --noinput
 python manage.py compress -v 0
