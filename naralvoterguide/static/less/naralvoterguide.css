@@ -1,0 +1,277 @@
+/* General */
+body {
+  font-family: 'Lato', sans-serif;
+}
+#wrapper {
+  min-height: 800px;
+}
+/* Headings & Links */
+h1,
+h2,
+h3 {
+  font-family: 'Arvo', serif;
+}
+h2 {
+  font-size: 28px;
+  margin-top: 0px;
+}
+a,
+a:link,
+a:hover,
+a:active,
+a:focus,
+a:visited {
+  color: #2a6496;
+}
+/* Header */
+.header {
+  margin-top: 10px;
+}
+.header h3 {
+  color: #B4003F;
+  margin-top: 10px;
+}
+.header h3 a,
+.header h3 a:link,
+.header h3 a:hover,
+.header h3 a:active,
+.header h3 a:focus,
+.header h3 a:visited {
+  color: #B4003F;
+  text-decoration: none;
+}
+.header .naral-links {
+  margin-top: 10px;
+}
+.header .naral-links a {
+  margin-left: 15px;
+}
+.header .donate-btn {
+  background: #cf142b;
+  color: white;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.header .nav > li > a {
+  padding: 6px 12px;
+  color: #B4003F;
+}
+.header .nav-pills > li.active a,
+.header .nav-pills > li.active a:link,
+.header .nav-pills > li.active a:hover,
+.header .nav-pills > li.active a:active,
+.header .nav-pills > li.active a:focus,
+.header .nav-pills > li.active a:visited {
+  color: #fff !important;
+  background-color: #B4003F !important;
+}
+.header .nav.nav-pills > li > a {
+  padding: 6px 6px;
+}
+.header .nav.nav-pills.hidden-xs {
+  margin-top: -20px;
+}
+/* Footer */
+.footer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 10px;
+  border-top: 1px dotted #CCCCCC;
+}
+.footer .fa {
+  font-size: 24px;
+  margin-right: 5px;
+}
+.footer .fa.fa-facebook-square {
+  color: #3b5998;
+}
+.footer .fa.fa-twitter-square {
+  color: #33ccff;
+}
+/* Main Content */
+.main-content {
+  margin-top: 10px;
+}
+.register-vote-header {
+  color: #B4003F;
+  padding-top: 20px;
+}
+.register-vote-header a,
+.register-vote-header a:link,
+.register-vote-header a:hover,
+.register-vote-header a:active,
+.register-vote-header a:focus,
+.register-vote-header a:visited {
+  color: #B4003F;
+  font-weight: bold;
+}
+/* Candidate Lists */
+h3.office-label {
+  margin-top: 30px;
+}
+TABLE.table-candidate-list {
+  border-right: 0;
+  border-bottom: 0;
+  width: auto;
+}
+@media only screen and (min-width: 900px) {
+  TABLE.table-candidate-list .col-office {
+    width: 200px;
+  }
+  TABLE.table-candidate-list .col-district {
+    width: 200px;
+  }
+  TABLE.table-candidate-list .col-name {
+    width: 250px;
+  }
+  TABLE.table-candidate-list .col-party {
+    width: 100px;
+  }
+  TABLE.table-candidate-list .col-rating {
+    width: 150px;
+  }
+}
+TABLE.table TBODY TR TD.icon-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 8px;
+  line-height: 28px;
+  width: 40px;
+}
+TABLE.table TBODY TR TD.icon-container .fa {
+  color: green;
+  font-size: 24px;
+}
+TABLE.table TBODY TR TD.icon-container .modal-trigger {
+  cursor: pointer;
+}
+TABLE.table TBODY TR TD.nobg {
+  background: none !important;
+  border: none !important;
+}
+.table-filter TR TD {
+  padding-right: 10px;
+}
+.table-filter LABEL {
+  margin-bottom: 0;
+}
+.statewide-endorsements {
+  font-size: 1.2em;
+}
+/* Map container */
+#map-canvas {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  display: block;
+}
+.address-echo {
+  margin-top: 5px;
+}
+.address-echo .the-address {
+  font-weight: bold;
+}
+.address-echo P {
+  margin-top: 5px;
+}
+/* Endorsement Box */
+.endorsement-box {
+  max-width: 530px;
+  border-radius: 10px;
+  border: 1px dotted #161e69;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.endorsement-box img {
+  float: left;
+  margin-right: 10px;
+}
+.endorsement-box .name {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+/* Featured Box */
+.featured-box {
+  max-width: 360px;
+  border-radius: 10px;
+  border: 2px solid #161e69;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  float: right;
+}
+.featured-box img {
+  max-width: 300px;
+}
+.featured-box h4 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #161e69;
+}
+.featured-box .blurb {
+  margin-top: 20px;
+}
+/* Lookup Form */
+.address_lookup_form {
+  background: #161e69;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 320px;
+}
+.address_lookup_form input {
+  max-width: 100%;
+}
+.address_lookup_form label {
+  color: white;
+}
+/* Responsiveness */
+@media only screen and (max-width: 760px) {
+  .featured-box {
+    max-width: 45%;
+  }
+  .featured-box img {
+    max-width: 100%;
+  }
+  .address_lookup_form {
+    max-width: 45%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .featured-box {
+    max-width: 80%;
+    float: none;
+  }
+  .featured-box img {
+    max-width: 100%;
+  }
+  .address_lookup_form {
+    max-width: 80%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .logo {
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .featured-box {
+    max-width: 320px;
+    margin-left: 0;
+    float: none;
+  }
+  .featured-box img {
+    max-width: 260px;
+  }
+}
+/* Print */
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}

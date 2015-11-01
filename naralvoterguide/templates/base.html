@@ -11,17 +11,13 @@
 
     <link href='//fonts.googleapis.com/css?family=Lato:400,700|Arvo:400,700' rel='stylesheet' type='text/css'>
 
-    {% compress css %}
     <link href="{{ STATIC_URL }}css/bootstrap-3.2.0.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}font-awesome-4.1.0/css/font-awesome.css" rel="stylesheet">
-    <link href="{{ STATIC_URL }}less/naralvoterguide.less" type="text/less" rel="stylesheet">
-    {% endcompress %}
+    <link href="{{ STATIC_URL }}less/naralvoterguide.css" type="text/css" rel="stylesheet">
 
-    {% compress js %}
     <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-3.2.0.js"></script>
     <script src="{{ STATIC_URL }}voterguide/voterguide.js"></script>
-    {% endcompress %}
     
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
