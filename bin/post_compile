@@ -20,6 +20,10 @@ fi
 
 # debug
 echo $GEOS_LIBRARY_PATH
+ls /app
+ls /app/.heroku
+ls /app/.heroku/vendor
+ls /app/.heroku/vendor/lib
 
 python manage.py migrate --noinput
 python manage.py compress -v 0
