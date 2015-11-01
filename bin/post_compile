@@ -18,7 +18,7 @@ if [ -f bin/install_nodejs ]; then
     npm install -g less
 fi
 
-python manage.py migrate --noinput
+# python manage.py migrate --noinput
 python manage.py compress -v 0
 
 echo "-----> Post-compile done"
