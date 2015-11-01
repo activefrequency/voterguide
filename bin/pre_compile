@@ -3,20 +3,7 @@
 
 # The post_compile hook is run by heroku-buildpack-python
 
-echo "-----> Running post-compile hook"
-
-# Work around Heroku bug whereby pylibmc isn't available during
-# compile phase. See: https://github.com/heroku/heroku-buildpack-python/issues/57
-export MEMCACHE_SERVERS='' MEMCACHIER_SERVERS=''
-
-# if [ -f bin/install_nodejs ]; then
-#     echo "-----> Running install_nodejs"
-#     chmod +x bin/install_nodejs
-#     bin/install_nodejs
-
-#     # Install Node modules (e.g. LESS)
-#     npm install -g less
-# fi
+echo "-----> Running pre-compile hook"
 
 # debug
 echo $GEOS_LIBRARY_PATH
@@ -25,7 +12,4 @@ ls -la /app/.heroku
 ls -la /app/.heroku/vendor
 ls -la /app/.heroku/vendor/lib
 
-python manage.py migrate --noinput
-python manage.py compress -v 0
-
-echo "-----> Post-compile done"
+echo "-----> Pre-compile done"
