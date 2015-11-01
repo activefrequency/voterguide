@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# set -veo pipefail
+set -veo pipefail
 
 # The post_compile hook is run by heroku-buildpack-python
 
@@ -9,21 +9,14 @@ echo "-----> Running post-compile hook"
 # compile phase. See: https://github.com/heroku/heroku-buildpack-python/issues/57
 export MEMCACHE_SERVERS='' MEMCACHIER_SERVERS=''
 
-# if [ -f bin/install_nodejs ]; then
-#     echo "-----> Running install_nodejs"
-#     chmod +x bin/install_nodejs
-#     bin/install_nodejs
+if [ -f bin/install_nodejs ]; then
+    echo "-----> Running install_nodejs"
+    chmod +x bin/install_nodejs
+    bin/install_nodejs
 
-#     # Install Node modules (e.g. LESS)
-#     npm install -g less
-# fi
-
-# debug
-echo $GEOS_LIBRARY_PATH
-ls -la /app
-ls -la /app/.heroku
-ls -la /app/.heroku/vendor
-ls -la /app/.heroku/vendor/lib
+    # Install Node modules (e.g. LESS)
+    npm install -g less
+fi
 
 python manage.py migrate --noinput
 python manage.py compress -v 0
