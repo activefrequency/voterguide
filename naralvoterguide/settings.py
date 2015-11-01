@@ -180,8 +180,12 @@ SERVER_EMAIL = os.environ.get('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = os.environ.get('SERVER_EMAIL')
 
 # GeoDjango settings
-GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH', '')
-GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH', '')
+# GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH', '')
+# GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH', '')
+
+GEOS_LIBRARY_PATH = "{}/libgeos_c.so".format(os.environ.get('GEOS_LIBRARY_PATH'))
+GDAL_LIBRARY_PATH = "{}/libgdal.so".format(os.environ.get('GDAL_LIBRARY_PATH'))
+PROJ4_LIBRARY_PATH = "{}/libproj.so".format(os.environ.get('PROJ4_LIBRARY_PATH'))
 
 SUNLIGHT_API_KEY = os.environ.get('SUNLIGHT_API_KEY', '')
 
