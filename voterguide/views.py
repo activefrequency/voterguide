@@ -3,8 +3,7 @@ from functools import wraps
 
 from django.utils.translation import ugettext as _
 from django.shortcuts import render
-from django.http import Http404
-from django.contrib.gis.geos import Point, GEOSGeometry
+from django.contrib.gis.geos import GEOSGeometry
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
@@ -17,7 +16,6 @@ from .utils import normalize_ordinals
 
 import StringIO
 import unicodecsv
-
 
 
 def placeholder_if_on(view_func):
@@ -401,3 +399,8 @@ def import_districts(request):
     return render(request, "voterguide/import_districts.html", {
         'form': form,
     })
+
+
+def util_trigger_500(request):
+    """Test error handling"""
+    assert False

@@ -171,10 +171,10 @@ COMPRESS_PRECOMPILERS = (
 
 LOGIN_URL = '/tools/login/'
 
-EMAIL_HOST = 'smtp.mandrillapp.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('MANDRILL_USERNAME')
-EMAIL_HOST_PASSWORD = os.environ.get('MANDRILL_APIKEY')
+EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
 EMAIL_USE_TLS = True
 SERVER_EMAIL = os.environ.get('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = os.environ.get('SERVER_EMAIL')

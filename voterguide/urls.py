@@ -1,5 +1,4 @@
 from django.conf.urls import url
-from django.conf import settings
 
 import views
 
@@ -15,4 +14,7 @@ urlpatterns += [
     url(r'^list/$', views.candidate_list, name='candidate_list'),
     url(r'^about/$', views.about, name='about'),
     url(r'^placeholder/$', views.placeholder, name='placeholder'),
+
+    # Utils
+    url(r'^util/trigger-500/$', views.util_trigger_500, name='util_trigger_500'),
 ]
