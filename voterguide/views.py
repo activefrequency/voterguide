@@ -211,6 +211,12 @@ def import_candidates(request):
                 elif row['Office'].strip() in ['State Senate', 'State Senator']:
                     office = Office.objects.get(chamber=District.CHAMBER_UPPER)
                     chamber = District.CHAMBER_UPPER
+                elif row['Office'].strip() in ['US Senate', 'US Senator']:
+                    office = Office.objects.get(chamber=District.CHAMBER_USSENATE)
+                    chamber = District.CHAMBER_USSENATE
+                elif row['Office'].strip() in ['US Representative', 'US House']:
+                    office = Office.objects.get(chamber=District.CHAMBER_USHOUSE)
+                    chamber = District.CHAMBER_USHOUSE
                 else:
                     try:
                         office = Office.objects.get(name=row['Office'].strip())
@@ -240,11 +246,17 @@ def import_candidates(request):
                     district_name = district_name.replace('  ', ' ').replace('  ', ' ').strip()
                     district_name = district_name.replace('County County', 'County')
                     try:
-                        if 'county' in district_name.lower():
-                            chamber = District.CHAMBER_COUNTY
+                        if chamber in [District.CHAMBER_UPPER, District.CHAMBER_LOWER]:
+                            district = District.objects.get(name=row['District'].strip(), chamber=chamber, state=state)
+                        elif chamber == District.CHAMBER_USHOUSE:
+                            district_name = 'Congressional District {}'.format(row['District'].strip())
+                            district = District.objects.get(name=district_name, chamber=chamber, state=state)
                         else:
-                            chamber = District.CHAMBER_CITY
-                        district = District.objects.get(name=district_name, chamber=chamber, state=state)
+                            if 'county' in district_name.lower():
+                                chamber = District.CHAMBER_COUNTY
+                            else:
+                                chamber = District.CHAMBER_CITY
+                            district = District.objects.get(name=district_name, chamber=chamber, state=state)
                     except District.DoesNotExist:
                         try:
                             district = District.objects.get(name=normalize_ordinals(district_name), chamber=chamber, state=state)
