@@ -200,6 +200,7 @@ VOTERGUIDE_SETTINGS = {
         'LOGO_IMG': os.environ.get('VOTERGUIDE_BRANDING_LOGO_IMG', 'logo-ma.png'),
         'SHOW_STATEWIDE_ENDORSEMENTS': bool(os.environ.get('VOTERGUIDE_SHOW_STATEWIDE_ENDORSEMENTS', '1') == '1'),
         'SHOW_STATEWIDE': bool(os.environ.get('VOTERGUIDE_SHOW_STATEWIDE', '1') == '1'),
+        'GOOGLE_MAPS_API_KEY': os.environ.get('VOTERGUIDE_GOOGLE_MAPS_API_KEY', ''),
     }
 }
 

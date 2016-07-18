@@ -18,8 +18,8 @@
     <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-3.2.0.js"></script>
     <script src="{{ STATIC_URL }}voterguide/voterguide.js"></script>
-    
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js{% if BRANDING.GOOGLE_MAPS_API_KEY %}?key={{ BRANDING.GOOGLE_MAPS_API_KEY }}{% endif %}"></script>
 
     {% block extrahead %}{% endblock %}
 </head>
