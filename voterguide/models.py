@@ -239,7 +239,7 @@ class Candidate(models.Model):
         (RATING_RECOMMENDED, _("Recommended")),
         (RATING_MIXED, _("Mixed")),
         (RATING_ANTI, _("Anti-Choice")),
-        (RATING_UNKNOWN, _("Unknown")),
+        (RATING_UNKNOWN, _("Not Enough Information")),
     )
 
     person = models.ForeignKey(Person)
