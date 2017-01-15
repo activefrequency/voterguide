@@ -141,7 +141,9 @@ def candidate_list(request):
 
     candidate_filter = CandidateFilterForm(request.GET, label_suffix="")
     if not candidate_filter.is_valid():
-        raise Exception("candidate_filter not valid - this shouldn't happen")
+        # this shouldn't happen, but bots sometimes trigger it, so don't throw an error
+        # raise Exception("candidate_filter not valid - this shouldn't happen")
+        pass
 
     office = candidate_filter.cleaned_data.get('office', None)
     if office:
