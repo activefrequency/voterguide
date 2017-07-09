@@ -49,6 +49,7 @@ class District(models.Model):
     CHAMBER_UPPER = 1
     CHAMBER_LOWER = 2
     CHAMBER_COUNTY = 3
+    CHAMBER_MAYOR = 8
     CHAMBER_CITY = 4
     CHAMBER_USSENATE = 5
     CHAMBER_USHOUSE = 6
@@ -57,6 +58,7 @@ class District(models.Model):
         (CHAMBER_UPPER, _("State Senate")),
         (CHAMBER_LOWER, _("State House")),
         (CHAMBER_COUNTY, _("County")),
+        (CHAMBER_MAYOR, _("Mayor")),
         (CHAMBER_CITY, _("City Council")),
         (CHAMBER_USSENATE, _("US Senate")),
         (CHAMBER_USHOUSE, _("US House")),
