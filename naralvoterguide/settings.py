@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com').split(':')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com:localhost').split(':')
 
 # For Heroku
 import dj_database_url
@@ -256,3 +256,9 @@ except NameError:
     pass
 except ImportError:
     pass
+
+# See: https://gist.github.com/acdha/ee4e4efee0f47e6953c05b2f060eb4ad
+if DEBUG:
+    GDAL_LIBRARY_PATH = "/usr/local/lib/libgdal.dylib"
+    import ctypes
+    ctypes.CDLL(GDAL_LIBRARY_PATH)
