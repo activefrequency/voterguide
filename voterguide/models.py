@@ -219,6 +219,8 @@ class Candidate(models.Model):
     PARTY_R = _("R")
     PARTY_I = _("I")
     PARTY_L = _("L")
+    PARTY_SO = _("SO")
+    PARTY_DS = _("DS")
     PARTY_U = _("U")
     PARTY_N = _("N")
     PARTY_CHOICES = (
@@ -226,6 +228,8 @@ class Candidate(models.Model):
         (PARTY_R, _("Republican")),
         (PARTY_I, _("Independent")),
         (PARTY_L, _("Libertarian")),
+        (PARTY_SO, _("Socialist")),
+        (PARTY_DS, _("Democratic Socialist")),
         (PARTY_G, _("Green")),
         (PARTY_U, _("United Ind.")),
         (PARTY_N, _("Unaffiliated")),
