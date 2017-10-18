@@ -51,6 +51,8 @@ class District(models.Model):
     CHAMBER_COUNTY = 3
     CHAMBER_MAYOR = 8
     CHAMBER_CITY = 4
+    CHAMBER_CITY_ATTORNEY = 9
+    CHAMBER_SCHOOL_BOARD = 10
     CHAMBER_USSENATE = 5
     CHAMBER_USHOUSE = 6
     CHAMBER_GOVERNORS_COUNCIL = 7
@@ -60,6 +62,8 @@ class District(models.Model):
         (CHAMBER_COUNTY, _("County")),
         (CHAMBER_MAYOR, _("Mayor")),
         (CHAMBER_CITY, _("City Council")),
+        (CHAMBER_CITY_ATTORNEY, _("City Attorney")),
+        (CHAMBER_SCHOOL_BOARD, _("School Board")),
         (CHAMBER_USSENATE, _("US Senate")),
         (CHAMBER_USHOUSE, _("US House")),
         (CHAMBER_GOVERNORS_COUNCIL, _("Governor's Council")),
