@@ -100,7 +100,7 @@ def district_lookup(request):
 
     # if there's a postal code, find if it maps to specific districts and use those
     if postal_code:
-        conditions = Q(district_conditions | Q(postal_code__contains=postal_code))
+        district_conditions = Q(district_conditions | Q(postal_code_override__contains=postal_code))
 
     districts = District.objects.filter(district_conditions)
 
