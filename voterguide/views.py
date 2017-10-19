@@ -95,7 +95,14 @@ def district_lookup(request):
 
     # get point/districts
     pnt = GEOSGeometry('POINT({} {})'.format(lng, lat))
-    districts = District.objects.filter(boundaries__contains=pnt)
+
+    district_conditions = Q(boundaries__contains=pnt)
+
+    # if there's a postal code, find if it maps to specific districts and use those
+    if postal_code:
+        conditions = Q(district_conditions | Q(postal_code__contains=postal_code))
+
+    districts = District.objects.filter(district_conditions)
 
     # TODO: nicer error
     if districts.count() == 0:
@@ -116,8 +123,6 @@ def district_lookup(request):
         conditions = Q(conditions | Q(race__district__county=county))
     if city:
         conditions = Q(conditions | Q(race__district__city=city))
-    if postal_code:
-        conditions = Q(conditions | Q(race__district__postal_code__contains=postal_code))
 
     # show statewide candidates as well
     conditions = Q(conditions | Q(race__district__isnull=True))
