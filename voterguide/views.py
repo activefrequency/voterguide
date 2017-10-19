@@ -77,6 +77,7 @@ def district_lookup(request):
     county = request.GET.get('county', None)
     city = request.GET.get('city', None)
     address = request.GET.get('address', '')
+    postal_code = request.GET.get('postal_code', '')
 
     # TODO: throw nicer error here if current elections <> 1
     current_election = Election.objects.get(is_active=True)
@@ -115,6 +116,8 @@ def district_lookup(request):
         conditions = Q(conditions | Q(race__district__county=county))
     if city:
         conditions = Q(conditions | Q(race__district__city=city))
+    if postal_code:
+        conditions = Q(conditions | Q(race__district__postal_code__contains=postal_code))
 
     # show statewide candidates as well
     conditions = Q(conditions | Q(race__district__isnull=True))

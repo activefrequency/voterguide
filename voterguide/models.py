@@ -86,6 +86,9 @@ class District(models.Model):
     county = models.CharField(verbose_name=_("County"), max_length=100, blank=True, null=True)
     city = models.CharField(verbose_name=_("City"), max_length=100, blank=True, null=True)
 
+    # zip code override
+    postal_code_override = models.CharField(verbose_name=_("ZIP codes"), max_length=100, blank=True, null=True, help_text="If the address is in one of these postal codes, assume it's in this district (used for fixing Google Maps geocoding errors).")
+
     # floterial districts
     floterial_to = models.ManyToManyField("self", blank=True, related_name="floterial_districts")
     is_floterial = models.BooleanField(default=False)

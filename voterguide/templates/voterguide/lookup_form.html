@@ -16,6 +16,7 @@
     <input type="hidden" name="address" id="address_str">
     <input type="hidden" name="county" id="address_county">
     <input type="hidden" name="city" id="address_city">
+    <input type="hidden" name="postal_code" id="address_postal_code">
 </form>
 
 <script type="text/javascript">
@@ -28,7 +29,6 @@
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({'address': address}, function(results, status) {
               if (status == google.maps.GeocoderStatus.OK) {
-                window.log("Google geocode successful");
                 var loc = results[0].geometry.location;
 
                 // get county if we have one
@@ -38,6 +38,9 @@
                     }
                     if ((component.types[0] == "locality") && (component.types[1] == "political")) {
                         $('#address_city').val(component.long_name.trim());
+                    }
+                    if (component.types[0] == "postal_code") {
+                        $('#address_postal_code').val(component.long_name.trim());
                     }
                 });
 
