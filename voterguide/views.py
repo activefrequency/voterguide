@@ -45,6 +45,8 @@ def home(request):
     current_election = Election.objects.filter(is_active=True).first()
     if current_election:
         featured = Candidate.objects.filter(race__election=current_election, featured=True).order_by('?').select_related('person').first()
+    else:
+        featured = None
 
     return render(request, "voterguide/home.html", {
         'active_page': 'home',
