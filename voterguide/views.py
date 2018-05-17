@@ -56,9 +56,12 @@ def home(request):
 
 @placeholder_if_on
 def statewide(request):
-    current_election = Election.objects.get(is_active=True)
-    candidates = Candidate.objects.filter(race__election=current_election, race__district=None).select_related('person', 'race', 'race__office', 'race__district').order_by(
-        'race__state', 'race__election', 'race__office', 'race__district', '-is_endorsed', '-is_pro', '-is_incumbent', 'person__last_name', 'person__first_name')
+    current_election = Election.objects.filter(is_active=True).first()
+    if current_election:
+        candidates = Candidate.objects.filter(race__election=current_election, race__district=None).select_related('person', 'race', 'race__office', 'race__district').order_by(
+            'race__state', 'race__election', 'race__office', 'race__district', '-is_endorsed', '-is_pro', '-is_incumbent', 'person__last_name', 'person__first_name')
+    else:
+        candidates = []
 
     return render(request, "voterguide/statewide.html", {
         'active_page': 'statewide',
@@ -83,7 +86,7 @@ def district_lookup(request):
     postal_code = request.GET.get('postal_code', '')
 
     # TODO: throw nicer error here if current elections <> 1
-    current_election = Election.objects.get(is_active=True)
+    current_election = Election.objects.filter(is_active=True).first()
 
     # only show 'statewide endorsements' header if there are ANY statewide endorsed candidates
     show_endorsements = Race.objects.filter(district=None, has_endorsement=True).exists()
@@ -130,8 +133,11 @@ def district_lookup(request):
     # show statewide candidates as well
     conditions = Q(conditions | Q(race__district__isnull=True))
 
-    candidates = Candidate.objects.filter(race__election=current_election).filter(conditions).distinct().select_related('person', 'race', 'race__office', 'race__district').order_by(
-        'race__state', 'race__election', 'race__office', 'race__district', '-is_incumbent', 'person__last_name', 'person__first_name')
+    if current_election:
+        candidates = Candidate.objects.filter(race__election=current_election).filter(conditions).distinct().select_related('person', 'race', 'race__office', 'race__district').order_by(
+            'race__state', 'race__election', 'race__office', 'race__district', '-is_incumbent', 'person__last_name', 'person__first_name')
+    else:
+        candidates = []
 
     return render(request, "voterguide/district.html", {
         'form_error': None,
@@ -146,9 +152,12 @@ def district_lookup(request):
 
 @placeholder_if_on
 def candidate_list(request):
-    current_election = Election.objects.get(is_active=True)
-    candidates = Candidate.objects.filter(race__election=current_election).select_related('person', 'race', 'race__office', 'race__district').order_by(
-        'race__state', 'race__election', 'race__office', 'race__district', '-is_endorsed', '-is_pro', '-is_incumbent', 'person__last_name', 'person__first_name')
+    current_election = Election.objects.filter(is_active=True).first()
+    if current_election:
+        candidates = Candidate.objects.filter(race__election=current_election).select_related('person', 'race', 'race__office', 'race__district').order_by(
+            'race__state', 'race__election', 'race__office', 'race__district', '-is_endorsed', '-is_pro', '-is_incumbent', 'person__last_name', 'person__first_name')
+    else:
+        candidates = []
 
     candidate_filter = CandidateFilterForm(request.GET, label_suffix="")
     if not candidate_filter.is_valid():
