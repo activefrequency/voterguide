@@ -102,7 +102,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                'django.core.context_processors.request',
+                'django.template.context_processors.request',
                 'voterguide.context_processors.google_analytics',
                 'voterguide.context_processors.branding',
             ],
@@ -114,7 +114,7 @@ TEMPLATES = [
     },
 ]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,7 +122,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
 ROOT_URLCONF = 'naralvoterguide.urls'
 
@@ -136,7 +136,6 @@ INSTALLED_APPS = (
     # 'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'flat',
     'django.contrib.admin',
     'django.contrib.gis',
     'django_extensions',
@@ -182,8 +181,6 @@ GEOS_LIBRARY_PATH = "{}/libgeos_c.so".format(GEO_LIBRARY_PATH)
 GDAL_LIBRARY_PATH = "{}/libgdal.so".format(GEO_LIBRARY_PATH)
 PROJ4_LIBRARY_PATH = "{}/libproj.so".format(GEO_LIBRARY_PATH)
 
-SUNLIGHT_API_KEY = os.environ.get('SUNLIGHT_API_KEY', '')
-
 VOTERGUIDE_SETTINGS = {
     'DEFAULT_STATE': os.environ.get('VOTERGUIDE_DEFAULT_STATE', 'MA'),
     'DEFAULT_YEAR': os.environ.get('VOTERGUIDE_DEFAULT_YEAR', '2014'),
@@ -209,6 +206,8 @@ GOOGLE_ANALYTICS_PROPERTY_ID = os.environ.get('GOOGLE_ANALYTICS_PROPERTY_ID', ''
 # turn on "Placeholder mode" - hijacks to placeholder page
 SHOW_PLACEHOLDER = bool(os.environ.get('VOTERGUIDE_SHOW_PLACEHOLDER', '0') == '1')
 
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

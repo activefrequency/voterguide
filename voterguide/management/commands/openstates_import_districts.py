@@ -6,7 +6,7 @@ from django.conf import settings
 
 from voterguide.models import District
 
-import sunlight
+# import sunlight
 
 
 class Command(BaseCommand):
@@ -18,6 +18,9 @@ class Command(BaseCommand):
             'upper': District.CHAMBER_UPPER,
             'lower': District.CHAMBER_LOWER,
         }
+
+        print("Deprecated because Sunlight API is deprecated")
+        return
 
         # Sunlight API key is required
         sunlight.config.API_KEY = settings.SUNLIGHT_API_KEY
