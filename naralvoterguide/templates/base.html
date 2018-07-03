@@ -36,7 +36,7 @@
 
             {% block navbar %}
                 <ul class="nav nav-pills pull-right hidden-xs">
-                    <li class="{% if active_page == 'local' %}active{% endif %}"><a href="{% url 'district_lookup' %}">{% trans "Local" %}</a></li>
+                    <li class="{% if active_page == 'local' %}active{% endif %}"><a href="{% url 'district_lookup' %}">{% trans "My Candidates" %}</a></li>
                     {% if BRANDING.SHOW_STATEWIDE %}
                         <li class="{% if active_page == 'statewide' %}active{% endif %}"><a href="{% url 'statewide' %}">{% trans "Statewide" %}</a></li>
                     {% endif %}
@@ -46,7 +46,7 @@
                 <h3><a href="{% url 'home' %}">{% now "Y" %} {% trans "Voters' Guide" %}</a></h3>
 
                 <ul class="nav nav-pills visible-xs-block">
-                    <li class="{% if active_page == 'local' %}active{% endif %}"><a href="{% url 'district_lookup' %}">{% trans "Local" %}</a></li>
+                    <li class="{% if active_page == 'local' %}active{% endif %}"><a href="{% url 'district_lookup' %}">{% trans "My Candidates" %}</a></li>
                     {% if BRANDING.SHOW_STATEWIDE %}
                         <li class="{% if active_page == 'statewide' %}active{% endif %}"><a href="{% url 'statewide' %}">{% trans "Statewide" %}</a></li>
                     {% endif %}
