@@ -15,3 +15,7 @@ unicodecsv==0.14.1
 django-front==0.5.10
 django-appconf==1.0.2
 dsnparse==0.1.11
+
+redis==2.10.6
+hiredis==0.2.0
+django-redis-cache==1.7.1
