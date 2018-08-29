@@ -1,4 +1,5 @@
 from unipath import Path
+import dsnparse
 import os
 
 DEBUG = False
@@ -20,6 +21,36 @@ DATABASES = {'default': dj_database_url.config(default='postgres://foo:bar@local
 
 # Turn on PostGIS
 DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+
+# Redis setup - two DBs (default + sessions)
+redis_dsn = dsnparse.parse(os.environ.get('REDIS_URL', 'redis://localhost:6379'))
+CACHES = {
+    "default": {
+        "BACKEND": "redis_cache.RedisCache",
+        "LOCATION": "{0}:{1}".format(redis_dsn.hostname, redis_dsn.port),
+        "OPTIONS": {
+            "PARSER_CLASS": "redis.connection.HiredisParser",
+            "PASSWORD": redis_dsn.password,
+            "DB": 1,
+        }
+    },
+    "sessions": {
+        "BACKEND": "redis_cache.RedisCache",
+        "LOCATION": "{0}:{1}".format(redis_dsn.hostname, redis_dsn.port),
+        "OPTIONS": {
+            "PARSER_CLASS": "redis.connection.HiredisParser",
+            "PASSWORD": redis_dsn.password,
+            "DB": 2,
+        }
+    }
+}
+
+# sessions - use JSON serialization, cached_db storage (Redis with passthrough)
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+SESSION_CACHE_ALIAS = 'sessions'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+# Expire sessions at browser close by default
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
